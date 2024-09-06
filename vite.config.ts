@@ -12,5 +12,19 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    {
+      name: "remix-apigatewayv2-adapter",
+      apply(_config, env): boolean {
+        return env.command === "build" && env?.isSsrBuild === true;
+      },
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      config: async (_config, _env) => {
+        return {
+          build: {
+            ssr: "handler.ts",
+          },
+        };
+      },
+    },
   ],
 });
