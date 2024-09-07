@@ -1,3 +1,4 @@
+console.log("Import aws_lambda_nodejs")
 import {
   aws_lambda as lambda,
   aws_lambda_nodejs as lambda_nodejs,
@@ -20,19 +21,12 @@ export class Api extends Construct {
     this.handler = new lambda_nodejs.NodejsFunction(this, `${scope}-defaultLambda`, {
       bundling: {
         minify: true,
-        logLevel: lambda_nodejs.LogLevel.VERBOSE,
+        logLevel: lambda_nodejs.LogLevel.INFO,
+        externalModules: [
+          '@aws-sdk/*',
+        ],
       },
-      code: lambda.Code.fromAsset(
-        path.join(__dirname, "../../"),
-        {
-          exclude: [
-            'cdk/**',
-            'node_modules/**',
-          ],
-        }
-      ),
-      entry: 'handler.ts',
-      awsSdkConnectionReuse: true,
+      entry: path.join(__dirname, '..', '..', 'handler.js'),
       environment: {
         NODE_ENV: "production",
         ...props?.lambdaEnvironmentVariables,

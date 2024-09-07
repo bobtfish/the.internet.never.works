@@ -1,11 +1,11 @@
 import {
   Duration,
-  CfnOutput,
   aws_certificatemanager as certificatemanager,
   aws_cloudfront as cloudfront,
   aws_cloudfront_origins as origins,
   aws_s3_deployment as S3Deployment,
-  aws_s3 as s3
+  aws_s3 as s3,
+  CfnOutput,
 } from 'aws-cdk-lib'; 
 import { Construct } from 'constructs';
 import { CdnProps } from "../types";
@@ -20,21 +20,19 @@ export class CDN extends Construct {
     const staticBucket = new s3.Bucket(this, `${id}-static`);
     new S3Deployment.BucketDeployment(this, `${id}-static-deployment`, {
       sources: [
-        S3Deployment.Source.asset("../public"),
+        S3Deployment.Source.asset("../build/client"),
       ],
       destinationBucket: staticBucket,
     });
 
-    let domainNames;
+    const domainNames = props.domainNames
     let certificate;
-    if (props.certificateArn && props.domainName) {
+    if (props.certificateArn) {
       certificate = certificatemanager.Certificate.fromCertificateArn(
         this,
         `${id}-certificate`,
         props.certificateArn
       );
-
-      domainNames = [props.domainName];
     }
 
     const cachePolicy = new cloudfront.CachePolicy(this, `${id}-cachePolicy`, {
@@ -61,7 +59,11 @@ export class CDN extends Construct {
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
         additionalBehaviors: {
-          [`public/*`]: {
+          [`assets/*`]: {
+            origin: new origins.S3Origin(staticBucket),
+            viewerProtocolPolicy:
+              cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          }, [`favicon.ico`]: {
             origin: new origins.S3Origin(staticBucket),
             viewerProtocolPolicy:
               cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -70,8 +72,8 @@ export class CDN extends Construct {
       }
     );
 
-    //new CfnOutput(scope, "cdnDomainName", {
-    //   this.distribution.domainName
-    //});
+    new CfnOutput(scope, "cdnDomainName", {
+       value: this.distribution.domainName
+    });
   }
 }

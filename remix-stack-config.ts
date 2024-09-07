@@ -23,9 +23,11 @@ const remixStackConfig: RemixStackConfig = {
   // details, and create a CNAME record on your domain provider to the
   // "Domain Name" of this distribution (xxxxxxxxxxxxxx.cloudfront.net)
   //
-  // domainName: "your.domain.tld",
-  // certificateArn:
-  //   "arn:aws:acm:xx-xxxx-x:xxxxxxxxxxxx:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  domainNames: [
+    "the.internet.never.works"
+  ],
+  certificateArn:
+     "arn:aws:acm:us-east-1:054037124368:certificate/cab12c21-e47a-4785-90c4-5ff41cc1bd5a",
   //
   // However, if your domain is hosted in Route53, you can provide the
   // `hostZoneId` and `zoneName`, and a DNS A record will be created as an

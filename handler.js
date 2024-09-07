@@ -1,9 +1,11 @@
 import { AWSProxy, createRequestHandler } from "remix-aws";
-// eslint-disable-next-line import/no-unresolved
-import * as build from "virtual:remix/server-build";
+import * as build from "./build/server/index.js";
+
+import { installGlobals } from '@remix-run/node'
+installGlobals()
 
 export const handler = createRequestHandler({
-  build: build,
+  build, 
   mode: process.env.NODE_ENV,
   awsProxy: AWSProxy.APIGatewayV2,
 });
