@@ -1,5 +1,6 @@
 import {
   aws_lambda as lambda,
+  aws_lambda_nodejs as lambda_nodejs,
   Duration,
   CfnOutput,
   aws_apigatewayv2 as apigatewayv2,
@@ -16,19 +17,27 @@ export class Api extends Construct {
   constructor(scope: Construct, id: string, props?: ApiProps) {
     super(scope, id);
 
-    this.handler = new lambda.Function(this, `${scope}-defaultLambda`, {
+    this.handler = new lambda_nodejs.NodejsFunction(this, `${scope}-defaultLambda`, {
+      bundling: {
+        minify: true,
+        logLevel: lambda_nodejs.LogLevel.VERBOSE,
+      },
       code: lambda.Code.fromAsset(
         path.join(__dirname, "../../"),
         {
-          exclude: ['cdk/**'],
+          exclude: [
+            'cdk/**',
+            'node_modules/**',
+          ],
         }
       ),
+      entry: 'handler.ts',
+      awsSdkConnectionReuse: true,
       environment: {
-        AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
         NODE_ENV: "production",
         ...props?.lambdaEnvironmentVariables,
       },
-      handler: "server.handler",
+      handler: "handler",
       memorySize: props?.lambdaMemorySize || 128,
       runtime: lambda.Runtime.NODEJS_20_X,
       timeout: Duration.seconds(15),
