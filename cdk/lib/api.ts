@@ -19,9 +19,9 @@ export class Api extends Construct {
     this.handler = new lambda.Function(this, `${scope}-defaultLambda`, {
       code: lambda.Code.fromAsset(
         path.join(__dirname, "../../"),
-	{
-	  exclude: ['cdk/**'],
-	}
+        {
+          exclude: ['cdk/**'],
+        }
       ),
       environment: {
         AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
@@ -30,7 +30,7 @@ export class Api extends Construct {
       },
       handler: "server.handler",
       memorySize: props?.lambdaMemorySize || 128,
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       timeout: Duration.seconds(15),
       tracing: lambda.Tracing.DISABLED,
     });
@@ -44,7 +44,7 @@ export class Api extends Construct {
     });
 
     new CfnOutput(scope, "apiUrl", {
-  	value: this.httpApi.url || "",
+      value: this.httpApi.url || "",
     });
     new CfnOutput(scope, "lambdaFunctionName", {
        value: this.handler.functionName || "",

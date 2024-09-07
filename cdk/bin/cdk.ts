@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import "source-map-support/register";
-import { App, Stack } from 'aws-cdk-lib'; 
-import { aws_lambda as lambda } from 'aws-cdk-lib';
+import { App, aws_lambda as lambda } from 'aws-cdk-lib'; 
 import { RemixStack } from "../lib/remix-stack";
 import remixStackConfig from "../../remix-stack-config";
 
