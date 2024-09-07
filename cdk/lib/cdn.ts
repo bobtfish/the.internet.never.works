@@ -1,25 +1,26 @@
-import * as certificatemanager from "@aws-cdk/aws-certificatemanager";
-import * as core from "@aws-cdk/core";
-import * as cloudfront from "@aws-cdk/aws-cloudfront";
-import * as origins from "@aws-cdk/aws-cloudfront-origins";
-import * as s3 from "@aws-cdk/aws-s3";
-import * as S3Deployment from "@aws-cdk/aws-s3-deployment";
+import {
+  Duration,
+  CfnOutput,
+  aws_certificatemanager as certificatemanager,
+  aws_cloudfront as cloudfront,
+  aws_cloudfront_origins as origins,
+  aws_s3_deployment as S3Deployment,
+  aws_s3 as s3
+} from 'aws-cdk-lib'; 
+import { Construct } from 'constructs';
 import { CdnProps } from "../types";
 
-// @ts-ignore -- implicitly 'any' type.
-import * as remixConfig from "../../remix-starter-apigateway/remix.config";
-
-export class CDN extends core.Construct {
+export class CDN extends Construct {
   public distribution: cloudfront.Distribution;
 
-  constructor(scope: core.Construct, id: string, props: CdnProps) {
+  constructor(scope: Construct, id: string, props: CdnProps) {
     super(scope, id);
     const httpApiHost = (props.httpApi.url || "").split("/")[2];
 
     const staticBucket = new s3.Bucket(this, `${id}-static`);
     new S3Deployment.BucketDeployment(this, `${id}-static-deployment`, {
       sources: [
-        S3Deployment.Source.asset("../remix-starter-apigateway/public"),
+        S3Deployment.Source.asset("../public"),
       ],
       destinationBucket: staticBucket,
     });
@@ -38,9 +39,9 @@ export class CDN extends core.Construct {
 
     const cachePolicy = new cloudfront.CachePolicy(this, `${id}-cachePolicy`, {
       cookieBehavior: cloudfront.CacheCookieBehavior.all(),
-      defaultTtl: core.Duration.seconds(0),
-      minTtl: core.Duration.seconds(0),
-      maxTtl: core.Duration.days(10),
+      defaultTtl: Duration.seconds(0),
+      minTtl: Duration.seconds(0),
+      maxTtl: Duration.days(10),
       queryStringBehavior: cloudfront.CacheQueryStringBehavior.all(),
       enableAcceptEncodingGzip: true,
       enableAcceptEncodingBrotli: true,
@@ -60,7 +61,7 @@ export class CDN extends core.Construct {
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
         additionalBehaviors: {
-          [`${remixConfig.publicPath}*`]: {
+          [`public/*`]: {
             origin: new origins.S3Origin(staticBucket),
             viewerProtocolPolicy:
               cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -68,5 +69,9 @@ export class CDN extends core.Construct {
         },
       }
     );
+
+    //new CfnOutput(scope, "cdnDomainName", {
+    //   this.distribution.domainName
+    //});
   }
 }
