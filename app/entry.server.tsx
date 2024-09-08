@@ -6,13 +6,22 @@
 
 import { PassThrough } from "node:stream";
 
-import type { AppLoadContext, EntryContext } from "@remix-run/node";
+import type { AppLoadContext, DataFunctionArgs, EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
+
+export function handleError(
+  error: unknown,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { request, params, context }: DataFunctionArgs
+): void {
+  // Track the error somehow
+  console.log(error);
+}
 
 export default function handleRequest(
   request: Request,

@@ -6,7 +6,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  LiveReload
+  LiveReload,
+  useRouteError,
+  isRouteErrorResponse,
 } from "@remix-run/react";
 import {
   ColorSchemeScript,
@@ -38,6 +40,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <html lang="en">
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <h1>
+          {isRouteErrorResponse(error)
+            ? `${error.status} ${error.statusText}`
+            : error instanceof Error
+            ? error.message
+            : "Unknown Error"}
+        </h1>
+        <Scripts />
       </body>
     </html>
   );
