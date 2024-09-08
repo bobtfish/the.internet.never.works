@@ -14,28 +14,12 @@ const remixStackConfig: RemixStackConfig = {
   // lambdaMemorySize: 256,
   //
   // If you would like to configure a custom domain for your CDN you must
-  // specify the `domainName` and a `certificateArn` for that domain.  The
-  // certificate can be created at: https://console.aws.amazon.com/acm/home
-  //
-  // Note: Forcing the manual creation of this certificate allows us to support
-  // domain names not controlled by Route53.  In this case you would need to
-  // go to https://console.aws.amazon.com/cloudfront/home, view the distribution
-  // details, and create a CNAME record on your domain provider to the
-  // "Domain Name" of this distribution (xxxxxxxxxxxxxx.cloudfront.net)
-  //
+  // specify the `domainNames` and a `certificateArn` for that domain. 
   domainNames: [
     "the.internet.never.works"
   ],
-  certificateArn:
-     "arn:aws:acm:us-east-1:054037124368:certificate/cab12c21-e47a-4785-90c4-5ff41cc1bd5a",
-  //
-  // However, if your domain is hosted in Route53, you can provide the
-  // `hostZoneId` and `zoneName`, and a DNS A record will be created as an
-  // alias to the created CloudFront Distribution for you.
-  //
-  // hostedZoneId: "XXXXXXXXXXXXXX",
-  // zoneName: "yourZone.tld",
-  //
+  certificateArn: "arn:aws:acm:us-east-1:054037124368:certificate/cab12c21-e47a-4785-90c4-5ff41cc1bd5a",
+
   // If you are using jwtCookieSessionHandlerFactory, you'll want to configure
   // an ENV variable for the secret used there.
   remixCookieSecret: process.env.REMIX_COOKIE_SECRET,
