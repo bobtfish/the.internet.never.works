@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
+import { Link } from "@remix-run/react";
+
 import {
   IconBellRinging,
   IconFingerprint,
@@ -15,7 +16,7 @@ import {
 import classes from './Navbar.module.css';
 
 const menu = [
-    { link: '', label: 'Notifications', icon: IconBellRinging },
+    { link: '/cv', label: 'CV', icon: IconBellRinging },
     { link: '', label: 'Billing', icon: IconReceipt2 },
     { link: '', label: 'Security', icon: IconFingerprint },
     { link: '', label: 'SSH Keys', icon: IconKey },
@@ -28,19 +29,18 @@ export function Navbar() {
   const [active, setActive] = useState('Billing');
 
   const links = menu.map((item) => (
-    <a
+    <Link
       className={classes.link}
       data-active={item.label === active || undefined}
-      href={item.link}
+      to={item.link}
       key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={(_event) => {
         setActive(item.label);
       }}
     >
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
-    </a>
+    </Link>
   ));
 
   return (
