@@ -2,7 +2,6 @@ import '@mantine/core/styles.css';
 
 import {
   Links,
-  Link,
   Meta,
   Outlet,
   Scripts,
@@ -33,16 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <MantineProvider theme={theme}>
           <Shell>
-            <div>
-              <div id='sidebar'>
-                <ul>
-                <li><Link to="/cv">cv</Link></li>
-                </ul>
-              </div>
-              <div id='detail'>
-              {children}
-              </div>
-            </div>
+            {children}
           </Shell>
         </MantineProvider>
         <ScrollRestoration />
