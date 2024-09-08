@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Link } from "@remix-run/react";
 
 import {
-  IconBellRinging,
   IconFingerprint,
   IconKey,
   IconSettings,
@@ -13,10 +12,13 @@ import {
   IconLogout,
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
+import {
+  CVIcon
+} from '~/components/Icons'
 import classes from './Navbar.module.css';
 
 const menu = [
-    { link: '/cv', label: 'CV', icon: IconBellRinging },
+    { link: '/cv', label: 'CV', icon: CVIcon },
     { link: '', label: 'Billing', icon: IconReceipt2 },
     { link: '', label: 'Security', icon: IconFingerprint },
     { link: '', label: 'SSH Keys', icon: IconKey },
@@ -38,7 +40,7 @@ export function Navbar() {
         setActive(item.label);
       }}
     >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <item.icon className={classes.linkIcon} stroke={"1.5"} />
       <span>{item.label}</span>
     </Link>
   ));
