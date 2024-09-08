@@ -15,6 +15,9 @@ import {
   createTheme,
  } from '@mantine/core';
 
+ import {Shell} from "~/components/Shell";
+
+
 const theme = createTheme({});
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -29,16 +32,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
-        <div>
-          <div id='sidebar'>
-            <ul>
-            <li><Link to="/cv">cv</Link></li>
-            </ul>
-          </div>
-          <div id='detail'>
-          {children}
-          </div>
-        </div>
+          <Shell>
+            <div>
+              <div id='sidebar'>
+                <ul>
+                <li><Link to="/cv">cv</Link></li>
+                </ul>
+              </div>
+              <div id='detail'>
+              {children}
+              </div>
+            </div>
+          </Shell>
         </MantineProvider>
         <ScrollRestoration />
         <Scripts />
