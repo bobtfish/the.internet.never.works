@@ -30,6 +30,7 @@ export function Shell({ children }: ShellProps) {
       
           <HeaderControls
             githubLink="https://github.com/bobtfish/the.internet.never.works/"
+            linkedInLink="https://www.linkedin.com/in/tomasdoran/"
             visibleFrom="md"
           />
 
