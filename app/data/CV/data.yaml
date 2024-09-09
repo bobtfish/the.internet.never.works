@@ -1,4 +1,3 @@
----
 name: Tomas Doran
 synopsis: 'Principal level Site Reliability Engineer (SRE), web and back-end development expert, architect, leader.'
 profile: |
@@ -55,7 +54,7 @@ employmentHistory:
       - description: Responsible for [designing and delivering the initial platform API](https://www.youtube.com/watch?v=grA99mAMBJE); allowing third party customers and partners to search, ingest, and integrate music metadata, and providing streaming of transcoded music files at [telco scale](https://www.siliconrepublic.com/enterprise/eircom-music-service-claims-to-undercut-itunes-by-75pc).
       - description: Built a new web and SFTP based workflow for the ingestion of digital assets into the platform, utilising state machines and job queueing to manage concurrency and resource use. 
       - description: '[Optimised](https://www.slideshare.net/slideshow/scaling-application-servers-for-efficiency/2662130) this new ingestion system, allowing the company to scale from ingesting music from indie labels to ingesting content of major labels, and halving the average time taken for a new release to become available.'
-      - description: Introduced agile development practices such as unit testing, formal refactoring and code review into the organisation's development practices.
+      - description: "Introduced agile development practices such as unit testing, formal refactoring and code review into the organisation&apos;s development practices."
       - description: Re-architected the web frontend for the '[Greedbag](https://greedbag.com/)' family of online stores for independent labels, removing all per-retailer customisation by making the new platform more generic and flexible without code modifications. 
       - description: Implemented [caching at multiple layers](https://www.slideshare.net/slideshow/web-frameworks-dont-matter/4783024#16) - for common database lookups in memcached and HTML fragments which were expensive to generate in Varnish. 
       - description: Driver for the utilisation of Puppet for system configuration.
@@ -93,7 +92,7 @@ employmentHistory:
       - description: Expanded the testing framework to take input from a range of existing open source vulnerability scanning tools - such as the Nessus project - and integrated in-house tools.
       - description: Led development teams in the UK and launched a development organisation in Malaysia. 
       - description: Provided mentoring and training to developers and vulnerability testers.
-      - description: Developed and launched the company's wireless network vulnerability testing program
+      - description: "Developed and launched the company&apos;s wireless network vulnerability testing program"
       - description: Led multiple on-site testing projects for large organisations in the UK and Europe including councils, banks and financial institutions, and global software and electronics companies.
       - description: Built a host configuration management system which provided the highest levels of isolation for sensitive customers.
       - description: Introduced unit and integration testing, continuous integration, daily software delivery and deployment across the core platform.
@@ -106,7 +105,7 @@ employmentHistory:
         endDate: March 2003
     accomplishments:
       - description: Provided customer support on-site and via telephone for customers across a range of industries. This included troubleshooting issues with Windows PCs and network software, internet issues, Linux server issues.
-      - description: Developed new features for the company's internal platform based on a custom Linux distribution using OpenLDAP for directory and configuration management store.
+      - description: "Developed new features for the company&apos;s internal platform based on a custom Linux distribution using OpenLDAP for directory and configuration management store."
       - description: Created custom slipstreamed Windows XP and Windows 2000 installation CDs which allowed a zero touch setup of new or repaired workstations.
       - description: Created an automated system to generate customised access controls for Windows PCs deployed in a high school educational environment.
       - description: Integrated Linux software RAID into the platform and redesigned the backup system to be more reliable and operate faster.
