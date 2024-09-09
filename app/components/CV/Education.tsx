@@ -6,10 +6,7 @@ export type EducationProps = {
 
 function EducationItem({ education }: { education: EducationData }) {
     return (
-        <div>
-            <h3>{education.institution}</h3>
-
-        </div>
+        <>{education.startDate} - {education.endDate} {education.institution} - {education.description}</>
     )
 }
 
