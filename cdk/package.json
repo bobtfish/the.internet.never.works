@@ -8,6 +8,7 @@
     "build": "tsc",
     "cdk": "cdk",
     "clean": "cd ..; rimraf `git status --ignored --porcelain ./cdk/lib ./cdk/bin | grep '^!! ' | cut -c4-`",
+    "synth": "cdk synth",
     "deploy": "cdk deploy",
     "test": "jest",
     "watch": "tsc -w"
