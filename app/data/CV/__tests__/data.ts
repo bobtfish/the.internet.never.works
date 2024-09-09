@@ -1,8 +1,10 @@
 import { loadData } from '../Data'
 import { CVSchema } from '../Schema'
 
+const data = loadData()
+
 test('can loadData', () => {
-  expect(loadData()).toBeDefined()
+  expect(data).toBeDefined()
 })
 
 test('parse', () => {
