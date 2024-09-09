@@ -1,4 +1,4 @@
-import { Title, Text, Anchor } from "@mantine/core";
+import { Title, Text } from "@mantine/core";
 import classes from "./Welcome.module.css";
 
 export function Welcome() {
@@ -12,17 +12,11 @@ export function Welcome() {
           component="span"
           gradient={{ from: "pink", to: "yellow" }}
         >
-          Mantine
+          Tom&apos;s Homepage
         </Text>
       </Title>
       <Text color="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        This starter Remix project includes a minimal setup for server side
-        rendering, if you want to learn more on Mantine + Remix integration
-        follow{" "}
-        <Anchor href="https://mantine.dev/guides/remix/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit index.tsx file.
+        This site doesn&apos;t have much of anything on it yet :)
       </Text>
     </>
   );

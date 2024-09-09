@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from "@remix-run/react";
 
+/*
 import {
   IconFingerprint,
   IconKey,
@@ -12,6 +13,7 @@ import {
   IconLogout,
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
+*/
 import {
   CVIcon
 } from '~/components/Icons'
@@ -19,12 +21,12 @@ import classes from './Navbar.module.css';
 
 const menu = [
     { link: '/cv', label: 'CV', icon: CVIcon },
-    { link: '', label: 'Billing', icon: IconReceipt2 },
+    /*{ link: '', label: 'Billing', icon: IconReceipt2 },
     { link: '', label: 'Security', icon: IconFingerprint },
     { link: '', label: 'SSH Keys', icon: IconKey },
     { link: '', label: 'Databases', icon: IconDatabaseImport },
     { link: '', label: 'Authentication', icon: Icon2fa },
-    { link: '', label: 'Other Settings', icon: IconSettings },
+    { link: '', label: 'Other Settings', icon: IconSettings },*/
   ];
   
 export function Navbar() {
@@ -49,7 +51,11 @@ export function Navbar() {
     <nav className={classes.navbar}>
       <div className={classes.navbarMain}>{links}</div>
 
-      <div className={classes.footer}>
+      
+    </nav>
+  );
+  /*
+  <div className={classes.footer}>
         <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
@@ -60,6 +66,5 @@ export function Navbar() {
           <span>Logout</span>
         </a>
       </div>
-    </nav>
-  );
+      */
 }

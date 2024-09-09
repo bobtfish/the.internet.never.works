@@ -8,7 +8,6 @@ export function ColorSchemeControl() {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
-  return <IconSun />;
   return (
     <HeaderControl
       onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}

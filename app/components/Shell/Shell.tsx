@@ -6,6 +6,8 @@ import { HeaderControls } from '~/components/HeaderControls'
 import classes from './Shell.module.css';
 import {Navbar} from "~/components/Navbar";
 
+import logo from "./logo.png";
+
 interface ShellProps {
   children: React.ReactNode;
 }
@@ -25,7 +27,7 @@ export function Shell({ children }: ShellProps) {
       <AppShell.Header className={RemoveScroll.classNames.zeroRight}>
         <Container size="xl" px="md" className={classes.inner}>
           <Link to="/" className="mantine-focus-auto">
-            LOGO
+            <img src={logo} alt="Homepage" style={{height: '50px'}} />
           </Link>
       
           <HeaderControls
