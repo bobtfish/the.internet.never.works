@@ -13,13 +13,13 @@ function EmploymentItem ({ employment }: { employment: EmploymentData }) {
 }
 
 function EmploymentHistoryList ({
-    employmentHistoryData
-  }: EmploymentHistoryProps) {
-    return employmentHistoryData.map(employment => (
-      <li key={employment.companyName}>
-        <EmploymentItem employment={employment} />
-      </li>
-    ))
+  employmentHistoryData
+}: EmploymentHistoryProps) {
+  return employmentHistoryData.map(employment => (
+    <li key={employment.companyName}>
+      <EmploymentItem employment={employment} />
+    </li>
+  ))
 }
 
 export function EmploymentHistory ({
