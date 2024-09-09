@@ -11,6 +11,18 @@ const config: JestConfigWithTsJest = {
     "<rootDir>/cdk/",
     "<rootDir>/node_modules/"
   ],
+  transform: {
+    ...defaultEsmPreset.transform,
+    "\\.yaml$": "jest-transform-yaml",
+  },
+  moduleFileExtensions: [
+    "ts",
+    "tsx",
+    "yaml",
+    "js",
+    "jsx",
+    "json"
+  ]
 };
 
 export default config;
