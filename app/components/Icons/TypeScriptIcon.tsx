@@ -1,7 +1,7 @@
 import { Box, rem } from '@mantine/core';
-import { DevIconProps } from './types';
+import { IconProps } from './types';
 
-export function TypeScriptIcon({ size, style, ...others }: DevIconProps) {
+export function TypeScriptIcon({ size, style, ...others }: IconProps) {
   return (
     <Box
       component="svg"
