@@ -1,6 +1,6 @@
 import { Title, Text } from '@mantine/core'
 
-//import { MarkdownParagraph } from '../MarkdownString/MarkdownParagraph'
+import { MarkdownParagraph, MarkdownString } from '../Markdown'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
 import { Education } from './Education'
@@ -29,7 +29,7 @@ function Name ({ name }: { name: string }) {
 function Synopsis ({ synopsis }: { synopsis: string }) {
   return (
     <div>
-      <p>{synopsis}</p>
+      <p><MarkdownString markdown={synopsis} /></p>
     </div>
   )
 }
@@ -38,7 +38,7 @@ function Profile ({ profile }: { profile: string }) {
   return (
     <div>
       <h2>Profile</h2>
-      <p>{profile}</p>
+      <MarkdownParagraph markdown={profile} />
     </div>
   )
 }
