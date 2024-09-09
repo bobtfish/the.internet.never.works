@@ -41,13 +41,17 @@ export const employementSchema = z.object({
 
 export type Employment = z.infer<typeof employementSchema>
 
+export const programmingLanguageSchema = z.string()
+
+export type ProgrammingLanguage = z.infer<typeof programmingLanguageSchema>
+
 export const CVSchema = z.object({
   name: z.string(),
   profile: z.string(),
   employmentHistory: z.array(employementSchema),
-  educationHistory: z.array(educationSchema),
-  programmingLanguages: z.array(z.string()),
-  openSource: z.array(openSourceProjectSchema)
+  education: z.array(educationSchema),
+  programmingLanguages: z.array(programmingLanguageSchema),
+  openSourceProjects: z.array(openSourceProjectSchema)
 })
 
 export type CV = z.infer<typeof CVSchema>

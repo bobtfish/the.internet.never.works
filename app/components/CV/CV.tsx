@@ -1,14 +1,50 @@
+import { Title, Text } from '@mantine/core'
+
 import type { CV as CVData } from '~/data/CV'
+import { EmploymentHistory } from './EmploymentHistory'
+import { Education } from './Education'
+import { ProgrammingLanguages } from './ProgrammingLanguages'
+import { OpenSourceProjects } from './OpenSourceProjects'
 
 export type CVProps = {
-    cvdata: CVData
+  cvdata: CVData
 }
 
-export function CV({cvdata}: CVProps) {
-    return (
-        <div className="cv">
-            <h1>CV</h1>
-            <pre>{JSON.stringify(cvdata, null, 2)}</pre>
-        </div>
-    )
+function Name ({ name }: { name: string }) {
+  return (
+    <Title ta='center' mt={100}>
+      <Text
+        inherit
+        variant='gradient'
+        component='span'
+        gradient={{ from: 'black', to: 'red' }}
+      >
+        {name}
+      </Text>
+    </Title>
+  )
+}
+
+function Profile ({ profile }: { profile: string }) {
+  return (
+    <div>
+      <h2>Profile</h2>
+      <p>{profile}</p>
+    </div>
+  )
+}
+
+export function CV ({ cvdata }: CVProps) {
+  return (
+    <div className='cv'>
+      <Name name={cvdata.name} />
+      <Profile profile={cvdata.profile} />
+      <EmploymentHistory employmentHistoryData={cvdata.employmentHistory} />
+      <Education educationData={cvdata.education} />
+      <ProgrammingLanguages
+        programmingLanguagesData={cvdata.programmingLanguages}
+      />
+      <OpenSourceProjects openSourceProjectsData={cvdata.openSourceProjects} />
+    </div>
+  )
 }

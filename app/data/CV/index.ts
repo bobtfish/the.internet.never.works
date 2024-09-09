@@ -11,7 +11,9 @@ export {
     positionSchema,
     type Position,
     employementSchema,
-    type Employment
+    type Employment,
+    programmingLanguageSchema,
+    type ProgrammingLanguage
 } from './Schema'
 export {
     loadData as loadCVData
