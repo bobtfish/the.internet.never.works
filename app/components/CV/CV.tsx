@@ -25,6 +25,14 @@ function Name ({ name }: { name: string }) {
   )
 }
 
+function Synopsis ({ synopsis }: { synopsis: string }) {
+  return (
+    <div>
+      <p>{synopsis}</p>
+    </div>
+  )
+}
+
 function Profile ({ profile }: { profile: string }) {
   return (
     <div>
@@ -38,6 +46,7 @@ export function CV ({ cvdata }: CVProps) {
   return (
     <div className='cv'>
       <Name name={cvdata.name} />
+      <Synopsis synopsis={cvdata.synopsis} />
       <Profile profile={cvdata.profile} />
       <EmploymentHistory employmentHistoryData={cvdata.employmentHistory} />
       <Education educationData={cvdata.education} />

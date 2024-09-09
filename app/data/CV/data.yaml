@@ -1,7 +1,194 @@
 ---
 name: Tomas Doran
-profile: 'A lot of words about me'
-employmentHistory: []
-education: []
-programmingLanguages: []
-openSourceProjects: []
+synopsis: 'Principal level Site Reliability Engineer (SRE), web and back-end development expert, architect, leader.'
+profile: |
+    I have extensive experience across systems, networks, and applications, particularly within LAMP stacks. My expertise enables me to develop robust web applications, optimise databases, automate deployments (applications and infrastructure), and manage complex networking, datacenter operations, and global site performance.
+
+    My proficiency covers a wide array of programming languages and systems environments, with a strong focus on virtualization, cloud platforms, and containerization technologies. I am an active contributor to the open-source community, maintaining and developing software in multiple languages. My contributions can be found on GitHub, CPAN, RubyGems, and Puppetforge. 
+
+    As a recognized expert in development, architecture, and systems deployment I have spoken at many events, from [small meetups](https://www.youtube.com/watch?v=hwWvfAGkcmg) to large industry conferences such as PuppetConf and [DockerConf 2014](https://www.slideshare.net/slideshow/docker-confjune2014/35717305), where I shared insights on [open-source software](https://www.slideshare.net/slideshow/docker-confjune2014/35717305), [system design](https://www.youtube.com/watch?v=aiJ1pmrqR7E), [writing maintainable code](https://www.slideshare.net/slideshow/the-worstcodei-everwrotepuppetberlin/28300312#2) and [systems architecture](https://www.youtube.com/watch?v=qN19sdJvR9Q).
+
+
+employmentHistory:
+
+  - companyName: Yelp
+    url: https://www.yelp.co.uk/
+    positions:
+      - title: Group Technical Lead - Core Infrastructure
+        startDate: 2022
+        endDate: 2024
+      - title: Technical Lead
+        startDate: 2017
+        endDate: 2022
+      - title: Site Reliability Engineer
+        startDate: 2013
+        endDate: 2017
+    accomplishments:
+      - description: Project lead for a complete redesign of the data streaming infrastructure and platform, optimising reliability, ease of maintenance and development, and to better support business goals. Utilising Flink sqlclient, AWS Flink, Kafka & AWS MSK, Apache Paimon, AWS Redshift & Athena, AWS Glue & Confluent Schema registry.
+      - description: Rebuilt the telephony system on Twilio Flex; a platform new to the company. I worked with stakeholders across the business, achieving significant productivity improvements, customer retention, and satisfaction gains in sales and customer success teams.
+      - description: Raised the standard for systems being built and delivered across engineering.
+      - description: Built IaC (Infrastructure as Code) systems around Hashicorp Terraform to automate the deployment of AWS Infrastructure and ensure consistency, quality and security of internal systems.
+      - description: Responsible for adoption of a new [configuration management driven monitoring system](https://www.youtube.com/watch?v=0VfSmITEOHM), improving the quality of system monitoring and alerting. 
+      - description: Driver of the initial adoption of Prometheus as a platform monitoring system.
+      - description: Key architect of system configuration management tooling, driving Puppet installation upgrades across multiple major versions.
+      - description: Driver of the incorporation technology stacks from multiple company acquisitions into Yelp, while ensuring business continuity and minimising maintenance overheads.
+
+  - companyName: TIM Group
+    url: https://www.timgroup.com/
+    positions:
+      - title: Senior Systems Administrator
+        startDate: Jun 2012
+        endDate: Jul 2013
+    accomplishments:
+      - description: Built a system that orchestrated the deployment of a suite of complex application stacks, including allocating servers, provisioning virtual machines, and [deploying applications](https://www.slideshare.net/slideshow/london-devops-orc/17194831) and databases onto those virtual machines.
+      - description: Built a system for [continuous integration of system level config and automation](https://www.slideshare.net/slideshow/test-driven-i/25499487). Included custom providers to configure network switches, plus custom orchestration and application deployment solutions based around the mcollective project.
+      - description: Upgraded hardware in the data centres, without downtime. Worked as a database administrator and coached developers on how to write applications that were performant and stateless.
+      - description: Introduced application logging and aggregation using ZeroMQ, via an [open source framework](https://www.youtube.com/watch?v=N1RrTS5pfEk), into an Elasticsearch/Logstash/Kibana stack to provide better observability and debugging tools.
+
+  - companyName: state 51
+    url: https://thestate51conspiracy.com/About
+    positions:
+      - title: Web and backend developer
+        startDate: Apr 2008
+        endDate: Jun 2012
+    accomplishments:
+      - description: Responsible for [designing and delivering the initial platform API](https://www.youtube.com/watch?v=grA99mAMBJE); allowing third party customers and partners to search, ingest, and integrate music metadata, and providing streaming of transcoded music files at [telco scale](https://www.siliconrepublic.com/enterprise/eircom-music-service-claims-to-undercut-itunes-by-75pc).
+      - description: Built a new web and SFTP based workflow for the ingestion of digital assets into the platform, utilising state machines and job queueing to manage concurrency and resource use. 
+      - description: '[Optimised](https://www.slideshare.net/slideshow/scaling-application-servers-for-efficiency/2662130) this new ingestion system, allowing the company to scale from ingesting music from indie labels to ingesting content of major labels, and halving the average time taken for a new release to become available.'
+      - description: Introduced agile development practices such as unit testing, formal refactoring and code review into the organisation's development practices.
+      - description: Re-architected the web frontend for the '[Greedbag](https://greedbag.com/)' family of online stores for independent labels, removing all per-retailer customisation by making the new platform more generic and flexible without code modifications. 
+      - description: Implemented [caching at multiple layers](https://www.slideshare.net/slideshow/web-frameworks-dont-matter/4783024#16) - for common database lookups in memcached and HTML fragments which were expensive to generate in Varnish. 
+      - description: Driver for the utilisation of Puppet for system configuration.
+      - description: Extensively patched third party open source software to mitigate major operational pain points, fix bugs, and resolve performance issues.
+
+  - companyName: Venda
+    url: https://en.wikipedia.org/wiki/Venda_Inc
+    positions:
+      - title: Development Manager - Quality
+        startDate: 2007
+        endDate: Apr 2008
+      - title: Senior Developer
+        startDate: Sep 2006
+        endDate: 2007
+    accomplishments:
+      - description: Reviewed changes to the platform and deploying/managing new platform releases. 
+      - description: Managed a development team, and subsequently also the quality assurance team.
+      - description: Developed new release and patch processes, making software releases less time consuming, more efficient, and less risky.
+      - description: Staff training.
+      - description: Contributed to a new caching framework which was able to mitigate performance bottlenecks.
+
+  - companyName: NTA Monitor
+    url: https://www.intertek.com/nta/
+    positions:
+      - title: Head of Research and Development
+        startDate: 2004
+        endDate: Sept 2006
+      - title: Deveoper
+        startDate: April 2003
+        endDate: 2004
+    accomplishments:
+      - description: Developed and launched a new and integrated platform to automate infrastructure and [web application testing](https://www.slideshare.net/slideshow/webapp-security-testing-14144112/14144112), data collection and report generation.
+      - description: Developed a framework that allowed the easy authoring and integration of new vulnerabilities into the automated testing engine, and automatic reporting on those vulnerabilities.
+      - description: Ported and optimised this framework to be able to run from a single laptop when doing on-site tests.
+      - description: Expanded the testing framework to take input from a range of existing open source vulnerability scanning tools - such as the Nessus project - and integrated in-house tools.
+      - description: Led development teams in the UK and launched a development organisation in Malaysia. 
+      - description: Provided mentoring and training to developers and vulnerability testers.
+      - description: Developed and launched the company's wireless network vulnerability testing program
+      - description: Led multiple on-site testing projects for large organisations in the UK and Europe including councils, banks and financial institutions, and global software and electronics companies.
+      - description: Built a host configuration management system which provided the highest levels of isolation for sensitive customers.
+      - description: Introduced unit and integration testing, continuous integration, daily software delivery and deployment across the core platform.
+
+  - companyName: Northern Principle
+    url: https://web.archive.org/web/20110930113817/http://www.8networks.co.uk/
+    positions:
+      - title: Developer and Customer support Engineer
+        startDate: 1999
+        endDate: March 2003
+    accomplishments:
+      - description: Provided customer support on-site and via telephone for customers across a range of industries. This included troubleshooting issues with Windows PCs and network software, internet issues, Linux server issues.
+      - description: Developed new features for the company's internal platform based on a custom Linux distribution using OpenLDAP for directory and configuration management store.
+      - description: Created custom slipstreamed Windows XP and Windows 2000 installation CDs which allowed a zero touch setup of new or repaired workstations.
+      - description: Created an automated system to generate customised access controls for Windows PCs deployed in a high school educational environment.
+      - description: Integrated Linux software RAID into the platform and redesigned the backup system to be more reliable and operate faster.
+      - description: Managed the switch from ISDN links to DSL, including supplying and configuring routers and learning Cisco IOS.
+
+
+education:
+  - institution: Victoria University of Manchester
+    description: MEng Electronic Systems Engineering (hons)
+    startDate: 1998
+    endDate: 2002 
+  - institution: Blackpool Sixth Form College
+    description: A-Levels in Maths, Physics, Chemistry, Electronics
+    startDate: 1996
+    endDate: 1998
+
+
+programmingLanguages:
+    - Go
+    - Javascript/Typescript/nodejs/React
+    - Python
+    - Ruby
+    - Perl
+    - SQL (multiple dialects)
+    - SRE DSLs - Terraform, Puppet, Ansible
+    - Rust
+    - bash
+    - Java/Scala
+    - PHP
+    - C
+
+
+openSourceProjects:
+  - name: Catalyst Framework
+    url: http://catalyst.perl.org/
+    description: Ex Core team member. Framework has powered significant applications like the [BBC iPlayer v3](https://www.bbc.co.uk/blogs/bbcinternet/2008/12/iplayer_day_performance_tricks.html
+    languages: perl
+  - name: liminal-umbrella
+    url: https://github.com/bobtfish/liminal-umbrella
+    description: '[Discord](https://discord.com/) bot and Web interface to simplify and automate multi-step processes in a community Discord I help to run'
+    languages: Typescript + React
+  - name: AWSnycast
+    url: https://github.com/bobtfish/AWSnycast
+    description: Anycast type failover, but in AWS
+    languages: Go
+  - name: terraform-provider-nsone
+    url: https://github.com/bobtfish/terraform-provider-nsone
+    description: Initial version - was renamed and adopted upstream
+    languages: Go
+  - name: mayhem
+    url: https://github.com/bobtfish/mayhem
+    description: "port / re-implementation of the classic game '[Chaos: The Battle of Wizards](https://en.wikipedia.org/wiki/Chaos:_The_Battle_of_Wizards)'"
+    languages: Go
+  - name: mayhem-rs
+    url: https://github.com/bobtfish/mayhem-rs
+    description: port / re-implementation of the above
+    languages: Rust
+  - name: rustmoon
+    url: https://github.com/mlua-rs/rustmoon
+    description: Fully working port of Lua 5.3
+    languages: Rust
+  - name: puppet-aws_api
+    url: https://github.com/bobtfish/puppet-aws_api
+    description: Provider to manage AWS VPC resources in puppet - predating Terraform
+    languages: Ruby
+  - name: terraform-example-mesos-cluster
+    url: https://github.com/bobtfish/terraform-example-mesos-cluster
+    description: Example repo for launching a cluster
+    languages: Terraform - pre 1.0
+  - name: Message-Passing
+    url: https://github.com/suretec/Message-Passing
+    description: Simple event interoperability framework with multiple inputs/outputs
+    languages: perl
+  - name: arduino-mumble-mic-ptt
+    url: https://github.com/bobtfish/arduino-mumble-mic-ptt
+    description: Simple sketch turning an Arduino into a keyboard to allow digital IO to press keys, to make a PTT CB mic for Mumble
+    languages: C
+  - name: CatalystX-JobServer
+    url: https://github.com/bobtfish/CatalystX-JobServer
+    description: framework for concurrency limited / queued jobs
+    languages: perl
+  - name: acme-UNIVERSAL-cannot
+    url: https://github.com/bobtfish/acme-UNIVERSAL-cannot
+    description: joke module globally adds `->cannot()` and `->can't()` methods to perl (an inverse mirror of the in built in '->can()' method)
+    languages: perl

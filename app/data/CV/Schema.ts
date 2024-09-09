@@ -12,8 +12,8 @@ export type OpenSourceProject = z.infer<typeof openSourceProjectSchema>
 export const educationSchema = z.object({
   institution: z.string(),
   description: z.string(),
-  startDate: z.string(),
-  endDate: z.string()
+  startDate: z.coerce.string(),
+  endDate: z.coerce.string()
 })
 
 export type Education = z.infer<typeof educationSchema>
@@ -26,8 +26,8 @@ export type Accomplishment = z.infer<typeof accomplishmentSchema>
 
 export const positionSchema = z.object({
   title: z.string(),
-  startDate: z.string(),
-  endDate: z.string()
+  startDate: z.coerce.string(),
+  endDate: z.coerce.string()
 })
 
 export type Position = z.infer<typeof positionSchema>
@@ -47,6 +47,7 @@ export type ProgrammingLanguage = z.infer<typeof programmingLanguageSchema>
 
 export const CVSchema = z.object({
   name: z.string(),
+  synopsis: z.string(),
   profile: z.string(),
   employmentHistory: z.array(employementSchema),
   education: z.array(educationSchema),

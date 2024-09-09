@@ -90,11 +90,11 @@ describe('educationSchema', () => {
 
 const myCV = Object.freeze({
   name: 'Tom',
-  title: 'Chief Coffee Fetcher',
+  synopsis: 'Chief Coffee Fetcher',
   profile: 'A lot of words about how I kick ass',
-  educationHistory: [anEducation],
+  education: [anEducation],
   employmentHistory: [anEmployment],
-  openSource: [anOpenSourceProject],
+  openSourceProjects: [anOpenSourceProject],
   programmingLanguages: ['BASIC']
 })
 
@@ -102,8 +102,8 @@ describe('CVSchema', () => {
   test('parse', () => {
     const data = structuredClone(myCV)
     const result = CVSchema.safeParse(data)
+    expect(result.error).toEqual(undefined)
     expect(result.success).toEqual(true)
     expect(result.data).toBeDefined()
-    expect(result.error).toBeUndefined()
   })
 })
