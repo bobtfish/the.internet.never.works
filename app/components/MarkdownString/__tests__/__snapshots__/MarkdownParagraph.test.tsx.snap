@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paragraphs - no markdown 1`] = `
+<div>
+  <p>
+    <span>
+      foo
+    </span>
+  </p>
+  <p>
+    <span>
+      bar
+    </span>
+  </p>
+</div>
+`;
+
+exports[`paragraphs - with markdown 1`] = `
+<div>
+  <p>
+    <span>
+      foo
+      <a
+        href="http://www.somesite.com/"
+      >
+        a link
+      </a>
+    </span>
+  </p>
+  <p>
+    <span>
+      bar
+    </span>
+  </p>
+</div>
+`;
+
+exports[`plain text - no markdown 1`] = `
+<div>
+  <p>
+    <span>
+      hello world
+    </span>
+  </p>
+</div>
+`;
+
+exports[`with markdown 1`] = `
+<div>
+  <p>
+    <span>
+      <a
+        href="http://www.somesite.com/"
+      >
+        a link
+      </a>
+       hello world
+    </span>
+  </p>
+</div>
+`;
