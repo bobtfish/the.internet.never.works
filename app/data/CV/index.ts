@@ -14,5 +14,5 @@ export {
     type Employment
 } from './Schema'
 export {
-    loadData
+    loadData as loadCVData
 } from './Data'
