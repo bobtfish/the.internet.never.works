@@ -34,3 +34,13 @@ export function parseLinks (source: string | any[]): MarkdownLink[] {
     })
   )
 }
+
+export function splitParagraphs(source: string | any[]): any[] {
+    if (!Array.isArray(source)) source = [source]
+    return flatten(
+        source.map((md: any) => {
+          if (typeof md !== 'string') return md
+          return md.split(/(?<=\S)\s*\n\s*\n/).map((value: string) => value.trim()).filter((value: string) => value !== '')
+        })
+    )
+}
