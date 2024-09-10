@@ -43,9 +43,8 @@ export function RemixIconLight ({ size = 16, ...others }: IconProps) {
 export function RemixIcon (props: IconProps) {
   return (
     <>
-      <RemixIconLight lightHidden {...props} />
-      <RemixIconDark darkHidden {...props} />
+      <RemixIconLight darkHidden {...props} />
+      <RemixIconDark lightHidden {...props} />
     </>
   )
 }
-ß

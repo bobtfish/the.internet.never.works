@@ -46,7 +46,7 @@ export function Shell({ children }: ShellProps) {
         <Navbar /> 
       </AppShell.Navbar>
       <AppShell.Main>
-        <div className={classes.main}>{children}</div>
+        {children}
       </AppShell.Main>
       <AppShell.Footer>
         <Footer />

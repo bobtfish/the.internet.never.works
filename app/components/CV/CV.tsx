@@ -1,4 +1,4 @@
-import { Title, Text, useComputedColorScheme } from '@mantine/core'
+import { Title, Text } from '@mantine/core'
 import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
@@ -11,14 +11,23 @@ export type CVProps = {
 }
 
 function Name ({ name }: { name: string }) {
-  const from = useComputedColorScheme('light') === 'light' ? 'black' : 'white'
   return (
     <Title ta='center' mt={100}>
       <Text
         inherit
         variant='gradient'
         component='span'
-        gradient={{ from, to: 'red' }}
+        gradient={{ from: 'white', to: 'red' }}
+        lightHidden
+      >
+        {name}
+      </Text>
+      <Text
+        inherit
+        variant='gradient'
+        component='span'
+        gradient={{ from: 'black', to: 'red' }}
+        darkHidden
       >
         {name}
       </Text>
