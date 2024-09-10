@@ -1,4 +1,4 @@
-import { NotFound } from '~/components/NotFound';
+import { NotFound } from '~/components';
 
 export function loader() {
   return new Response("Not Found", {

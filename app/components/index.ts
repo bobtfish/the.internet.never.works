@@ -2,3 +2,4 @@
 export * from './Icons'
 export * from './Markdown'
 export * from './LoadingDelay'
+export * from './NotFound'

@@ -12,6 +12,7 @@
   inset: 0;
   opacity: 0.75;
   color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  z-index: -2;
 }
 
 .content {
@@ -25,9 +26,7 @@
 }
 
 .title {
-  font-family:
-    Greycliff CF,
-    var(--mantine-font-family);
+  font-family: Greycliff CF, var(--mantine-font-family);
   text-align: center;
   font-weight: 900;
   font-size: rem(38px);
@@ -42,4 +41,131 @@
   margin: auto;
   margin-top: var(--mantine-spacing-xl);
   margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
+}
+
+hr {
+  padding: 0;
+  border: none;
+  border-top: 5px solid #fff;
+  color: #fff;
+  text-align: center;
+  margin: 0px auto;
+  width: 420px;
+  height: 10px;
+  z-index: -10;
+}
+
+hr:after {
+  content: '\2022';
+  display: inline-block;
+  position: relative;
+  top: -0.75em;
+  font-size: 2em;
+  padding: 0 0.2em;
+  background: #33cc99;
+}
+
+.cloud {
+  width: 350px;
+  height: 120px;
+
+  background: rgb(73, 70, 70);
+  background: linear-gradient(top, rgb(73, 70, 70) 100%);
+
+  border-radius: 100px;
+
+  position: absolute;
+  margin: 120px auto 20px;
+  z-index: -1;
+  transition: ease 1s;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    background: #888383;
+    z-index: -1;
+  }
+
+  &:after {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50px;
+
+    border-radius: 100px;
+  }
+
+  &:before {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: 50px;
+
+    border-radius: 200px;
+  }
+}
+
+.x1 {
+  top: -50px;
+  left: 100px;
+  transform: scale(0.3);
+  opacity: 0.9;
+  animation: moveclouds 15s linear infinite;
+}
+
+.x1_5 {
+  top: -80px;
+  left: 250px;
+  transform: scale(0.3);
+  animation: moveclouds 17s linear infinite;
+}
+
+.x2 {
+  left: 250px;
+  top: 30px;
+  transform: scale(0.6);
+  opacity: 0.6;
+  animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+  left: 250px;
+  bottom: -70px;
+  transform: scale(0.6);
+  opacity: 0.8;
+
+  animation: moveclouds 25s linear infinite;
+  -webkit-animation: moveclouds 25s linear infinite;
+  -moz-animation: moveclouds 25s linear infinite;
+  -o-animation: moveclouds 25s linear infinite;
+}
+
+.x4 {
+  left: 470px;
+  bottom: 20px;
+
+  transform: scale(0.75);
+  opacity: 0.75;
+
+  animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+  left: 200px;
+  top: 300px;
+
+  transform: scale(0.5);
+  opacity: 0.8;
+
+  animation: moveclouds 20s linear infinite;
+}
+
+@keyframes moveclouds {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
 }
