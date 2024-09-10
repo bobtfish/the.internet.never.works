@@ -1,1 +1,1 @@
-export { CV } from './CV'
+export * from './CV'

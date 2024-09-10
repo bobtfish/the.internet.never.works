@@ -1,1 +1,1 @@
-export { Shell } from './Shell';
+export * from './Shell';

@@ -19,11 +19,14 @@ export function Shell({ children }: ShellProps) {
     <AppShell
       header={{ height: 60 }}
       navbar={{
-        width: 300,
+        width: '8rem',
         breakpoint: 'sm',
         collapsed: { mobile: !opened },
       }}
-      padding="md"
+      footer={{
+        height: '3rem',
+      }}
+      padding="sm"
     >
       <AppShell.Header className={RemoveScroll.classNames.zeroRight}>
         <Container size="xl" px="md" className={classes.inner}>
@@ -39,13 +42,13 @@ export function Shell({ children }: ShellProps) {
 
         </Container>
       </AppShell.Header>
-      <AppShell.Navbar p="md">
+      <AppShell.Navbar p="0">
         <Navbar /> 
       </AppShell.Navbar>
       <AppShell.Main>
         <div className={classes.main}>{children}</div>
       </AppShell.Main>
-      <AppShell.Footer p="md">
+      <AppShell.Footer>
         <Footer />
       </AppShell.Footer>
     </AppShell>

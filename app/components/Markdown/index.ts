@@ -1,2 +1,2 @@
-export { MarkdownString } from './MarkdownString'
-export { MarkdownParagraph } from './MarkdownParagraph'
+export * from './MarkdownString'
+export * from './MarkdownParagraph'

@@ -1,15 +1,13 @@
-import { Box, rem, useComputedColorScheme } from '@mantine/core'
+import { useComputedColorScheme } from '@mantine/core'
+import { BaseIcon } from './BaseIcon'
 import { IconProps } from './types'
 
-export function RemixIconDark ({ size = 24, style, ...others }: IconProps) {
+export function RemixIconDark (props: IconProps) {
   return (
-    <Box
-      component='svg'
-      xmlns='http://www.w3.org/2000/svg'
+    <BaseIcon
       viewBox='0 0 412 474'
-      style={[{ width: rem(size), height: rem(size) }, style]}
       fill='currentColor'
-      {...others}
+      {...props}
     >
       <path
         fillRule='evenodd'
@@ -26,18 +24,16 @@ export function RemixIconDark ({ size = 24, style, ...others }: IconProps) {
         stroke='white'
         strokeOpacity='0.8'
       />
-    </Box>
+    </BaseIcon>
   )
 }
 
-export function RemixIconLight ({ size = 24, style, ...others }: IconProps) {
+export function RemixIconLight ({ size = 16, ...others }: IconProps) {
   return (
-    <Box
-      component='svg'
-      xmlns='http://www.w3.org/2000/svg'
+    <BaseIcon
       viewBox='0 0 411 473'
-      style={[{ width: rem(size), height: rem(size) }, style]}
       fill='currentColor'
+      size={size}
       {...others}
     >
       <path
@@ -50,7 +46,7 @@ export function RemixIconLight ({ size = 24, style, ...others }: IconProps) {
         d='M0 473V399.553H133.697C156.029 399.553 160.878 416.116 160.878 425.994V473H0Z'
         fill='#121212'
       />
-    </Box>
+    </BaseIcon>
   )
 }
 
