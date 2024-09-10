@@ -2,9 +2,10 @@ import {
   Link,
 } from "@remix-run/react";
 import { AppShell, Container, RemoveScroll } from '@mantine/core';
-import { HeaderControls } from '~/components/HeaderControls'
+import { HeaderControls } from './Header'
 import classes from './Shell.module.css';
-import {Navbar} from "~/components/Navbar";
+import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 import logo from "./logo.png";
 
@@ -44,6 +45,9 @@ export function Shell({ children }: ShellProps) {
       <AppShell.Main>
         <div className={classes.main}>{children}</div>
       </AppShell.Main>
+      <AppShell.Footer p="md">
+        <Footer />
+      </AppShell.Footer>
     </AppShell>
   );
 }
