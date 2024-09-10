@@ -1,4 +1,4 @@
-import { LinkedInIcon } from '~/components/Icons';
+import { LinkedInIcon } from '~/components';
 import { HeaderControl } from './HeaderControl';
 
 interface LinkedInControlProps {

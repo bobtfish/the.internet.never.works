@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import { Link } from "@remix-run/react";
+import { CVIcon } from '~/components'
 
 /*
 import {
@@ -14,9 +15,6 @@ import {
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
 */
-import {
-  CVIcon
-} from '~/components/Icons'
 import classes from './Navbar.module.css';
 
 const menu = [

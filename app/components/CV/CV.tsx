@@ -1,6 +1,5 @@
 import { Title, Text } from '@mantine/core'
-
-import { MarkdownParagraph, MarkdownString } from '../Markdown'
+import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
 import { Education } from './Education'

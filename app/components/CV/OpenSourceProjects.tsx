@@ -1,6 +1,5 @@
+import { MarkdownString } from '~/components'
 import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
-
-import { MarkdownString } from '../Markdown'
 
 export type OpenSourceHistoryProps = {
   openSourceProjectsData: OpenSourceProjectData[]

@@ -1,5 +1,4 @@
-import { MarkdownString } from '../Markdown'
-
+import { MarkdownString } from '~/components'
 import type { Employment as EmploymentData } from '~/data/CV'
 
 export type EmploymentHistoryProps = {
