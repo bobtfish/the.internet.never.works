@@ -1,19 +1,9 @@
 .navbar {
   background-color: var(--mantine-color-body);
-  padding: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-xs);
   display: flex;
   flex-direction: column;
   border-right: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-}
-
-.navbarMain {
-  flex: 1;
-  margin-top: var(--mantine-spacing-l);
-}
-
-.title {
-  text-transform: uppercase;
-  letter-spacing: rem(-0.25px);
 }
 
 .link {
