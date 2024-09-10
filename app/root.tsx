@@ -6,7 +6,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  LiveReload,
   useRouteError,
   isRouteErrorResponse,
 } from "@remix-run/react";
@@ -39,7 +38,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </MantineProvider>
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );

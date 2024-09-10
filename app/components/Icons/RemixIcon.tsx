@@ -1,14 +1,9 @@
-import { useComputedColorScheme } from '@mantine/core'
 import { BaseIcon } from './BaseIcon'
 import { IconProps } from './types'
 
 export function RemixIconDark (props: IconProps) {
   return (
-    <BaseIcon
-      viewBox='0 0 412 474'
-      fill='currentColor'
-      {...props}
-    >
+    <BaseIcon viewBox='0 0 412 474' fill='currentColor' {...props}>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -30,12 +25,7 @@ export function RemixIconDark (props: IconProps) {
 
 export function RemixIconLight ({ size = 16, ...others }: IconProps) {
   return (
-    <BaseIcon
-      viewBox='0 0 411 473'
-      fill='currentColor'
-      size={size}
-      {...others}
-    >
+    <BaseIcon viewBox='0 0 411 473' fill='currentColor' size={size} {...others}>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
@@ -50,10 +40,12 @@ export function RemixIconLight ({ size = 16, ...others }: IconProps) {
   )
 }
 
-export function RemixIcon(props: IconProps) {
-    const colorScheme = useComputedColorScheme('light');
-    if (colorScheme === 'light') {
-        return <RemixIconLight {...props} />
-    }
-    return <RemixIconDark {...props} />
+export function RemixIcon (props: IconProps) {
+  return (
+    <>
+      <RemixIconLight lightHidden {...props} />
+      <RemixIconDark darkHidden {...props} />
+    </>
+  )
 }
+ß

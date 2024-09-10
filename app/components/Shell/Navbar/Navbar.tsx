@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 import { CVIcon } from '~/components'
 
 /*
@@ -31,7 +31,7 @@ export function Navbar() {
   const [active, setActive] = useState('Billing');
 
   const links = menu.map((item) => (
-    <Link
+    <NavLink
       className={classes.link}
       data-active={item.label === active || undefined}
       to={item.link}
@@ -42,12 +42,12 @@ export function Navbar() {
     >
       <item.icon className={classes.linkIcon} stroke={"1.5"} />
       <span>{item.label}</span>
-    </Link>
+    </NavLink>
   ));
 
   return (
-    <nav className={classes.navbar}>
+    <div className={classes.navbar}>
       {links}
-    </nav>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-.inner {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,5 +6,5 @@
 }
 
 .main {
-  padding-bottom: rem(120px);
+  background-color: #ff0000;
 }

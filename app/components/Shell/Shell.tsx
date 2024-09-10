@@ -29,8 +29,8 @@ export function Shell({ children }: ShellProps) {
       padding="sm"
     >
       <AppShell.Header className={RemoveScroll.classNames.zeroRight}>
-        <Container size="xl" px="md" className={classes.inner}>
-          <Link to="/" className="mantine-focus-auto">
+        <Container size="xl" px="md" className={classes.header}>
+          <Link to="/" className="mantine-focus-never">
             <img src={logo} alt="Homepage" style={{height: '50px'}} />
           </Link>
       
@@ -42,7 +42,7 @@ export function Shell({ children }: ShellProps) {
 
         </Container>
       </AppShell.Header>
-      <AppShell.Navbar p="0">
+      <AppShell.Navbar>
         <Navbar /> 
       </AppShell.Navbar>
       <AppShell.Main>
