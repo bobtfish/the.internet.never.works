@@ -1,56 +1,60 @@
+import { Link } from '@remix-run/react'
 import {
-  Link,
-} from "@remix-run/react";
-import { AppShell, Container, RemoveScroll } from '@mantine/core';
+  AppShell,
+  Container,
+  RemoveScroll,
+} from '@mantine/core'
+import { LoadingDelay } from '~/components'
 import { HeaderControls } from './Header'
-import classes from './Shell.module.css';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
+import classes from './Shell.module.css'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
-import logo from "./logo.png";
+import logo from './logo.png'
 
 interface ShellProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-export function Shell({ children }: ShellProps) {
-  const opened = true;
+export function Shell ({ children }: ShellProps) {
+  const opened = true
   return (
     <AppShell
       header={{ height: 60 }}
       navbar={{
         width: '8rem',
         breakpoint: 'sm',
-        collapsed: { mobile: !opened },
+        collapsed: { mobile: !opened }
       }}
       footer={{
-        height: '3rem',
+        height: '3rem'
       }}
-      padding="sm"
+      padding='sm'
     >
       <AppShell.Header className={RemoveScroll.classNames.zeroRight}>
-        <Container size="xl" px="md" className={classes.header}>
-          <Link to="/" className="mantine-focus-never">
-            <img src={logo} alt="Homepage" style={{height: '50px'}} />
+        <Container size='xl' px='md' className={classes.header}>
+          <Link to='/' className='mantine-focus-never'>
+            <img src={logo} alt='Homepage' style={{ height: '50px' }} />
           </Link>
-      
-          <HeaderControls
-            githubLink="https://github.com/bobtfish/the.internet.never.works/"
-            linkedInLink="https://www.linkedin.com/in/tomasdoran/"
-            visibleFrom="md"
-          />
 
+          <HeaderControls
+            githubLink='https://github.com/bobtfish/the.internet.never.works/'
+            linkedInLink='https://www.linkedin.com/in/tomasdoran/'
+            visibleFrom='md'
+          />
         </Container>
       </AppShell.Header>
       <AppShell.Navbar>
-        <Navbar /> 
+        <Navbar />
       </AppShell.Navbar>
       <AppShell.Main>
-        {children}
+        <LoadingDelay>
+          {children}
+        </LoadingDelay>
       </AppShell.Main>
       <AppShell.Footer>
         <Footer />
       </AppShell.Footer>
     </AppShell>
-  );
+  )
 }
