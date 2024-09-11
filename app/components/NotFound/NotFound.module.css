@@ -10,13 +10,12 @@
 .image {
   position: absolute;
   inset: 0;
-  opacity: 0.75;
-  color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  opacity: 0.95;
+  color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
   z-index: -2;
 }
 
 .content {
-  padding-top: rem(220px);
   position: relative;
   z-index: 1;
 
@@ -69,8 +68,8 @@ hr:after {
   width: 350px;
   height: 120px;
 
-  background: rgb(73, 70, 70);
-  background: linear-gradient(top, rgb(73, 70, 70) 100%);
+  background: var(--cloud-color);
+  background: linear-gradient(top, var(--cloud-color) 100%);
 
   border-radius: 100px;
 
@@ -83,7 +82,7 @@ hr:after {
   &:before {
     content: '';
     position: absolute;
-    background: #888383;
+    background: var(--cloud-color);
     z-index: -1;
   }
 
@@ -110,35 +109,32 @@ hr:after {
   top: -50px;
   left: 100px;
   transform: scale(0.3);
-  opacity: 0.9;
-  animation: moveclouds 15s linear infinite;
+  opacity: var(--cloud-x1-opacity);
+  animation: moveclouds1 var(--cloud-x1-speed) linear infinite;
 }
 
 .x1_5 {
   top: -80px;
   left: 250px;
-  transform: scale(0.3);
-  animation: moveclouds 17s linear infinite;
+  transform: var(--cloud-x1_5-opacity);
+  animation: moveclouds1_5 var(--cloud-x1_5-speed) linear infinite;
 }
 
 .x2 {
   left: 250px;
   top: 30px;
   transform: scale(0.6);
-  opacity: 0.6;
-  animation: moveclouds 25s linear infinite;
+  opacity: var(--cloud-x2-opacity);
+  animation: moveclouds2 var(--cloud-x2-speed) linear infinite;
 }
 
 .x3 {
   left: 250px;
   bottom: -70px;
   transform: scale(0.6);
-  opacity: 0.8;
+  opacity: var(--cloud-x3-opacity);
 
-  animation: moveclouds 25s linear infinite;
-  -webkit-animation: moveclouds 25s linear infinite;
-  -moz-animation: moveclouds 25s linear infinite;
-  -o-animation: moveclouds 25s linear infinite;
+  animation: moveclouds3 var(--cloud-x3-speed) linear infinite;
 }
 
 .x4 {
@@ -146,9 +142,9 @@ hr:after {
   bottom: 20px;
 
   transform: scale(0.75);
-  opacity: 0.75;
+  opacity: var(--cloud-x4-opacity);
 
-  animation: moveclouds 18s linear infinite;
+  animation: moveclouds4 var(--cloud-x4-speed) linear infinite;
 }
 
 .x5 {
@@ -156,12 +152,57 @@ hr:after {
   top: 300px;
 
   transform: scale(0.5);
-  opacity: 0.8;
+  opacity: var(--cloud-x5-opacity);
 
-  animation: moveclouds 20s linear infinite;
+  animation: moveclouds5 var(--cloud-x5-speed) linear infinite;
 }
 
-@keyframes moveclouds {
+@keyframes moveclouds1 {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@keyframes moveclouds1_5 {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@keyframes moveclouds2 {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@keyframes moveclouds3 {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@keyframes moveclouds4 {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@keyframes moveclouds5 {
   0% {
     margin-left: 1000px;
   }

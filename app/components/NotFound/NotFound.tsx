@@ -21,7 +21,7 @@ export function NotFound() {
           <Title className={classes.title}>Nothing to see here</Title>
           <Text c="dimmed" size="lg" ta="center" className={classes.description}>
             Page you are trying to open does not exist. You may have mistyped the address, or the
-            page has been moved to another URL. If you think this is an error then, ooops - I probably broke it.
+            page has been moved to another URL.
           </Text>
           <Group justify="center">
             <Button size="md">Take me back to home page</Button>
