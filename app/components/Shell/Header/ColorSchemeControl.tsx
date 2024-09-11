@@ -11,7 +11,7 @@ export function ColorSchemeControl () {
       <HeaderControl
         darkHidden
         onClick={() => setColorScheme('dark')}
-        tooltip={'Light mode'}
+        tooltip={'Dark mode'}
         aria-label='Toggle color scheme'
       >
         <IconMoon className={classes.icon} stroke={1.5} />
@@ -19,7 +19,7 @@ export function ColorSchemeControl () {
       <HeaderControl
         lightHidden
         onClick={() => setColorScheme('light')}
-        tooltip={'Dark mode'}
+        tooltip={'Light mode'}
         aria-label='Toggle color scheme'
       >
         <IconSun className={classes.icon} stroke={1.5} />

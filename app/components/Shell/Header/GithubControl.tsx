@@ -1,4 +1,4 @@
-import { GithubIcon } from '~/components';
+import { GithubIcon } from '~/components/Icons';
 import { HeaderControl } from './HeaderControl';
 
 interface GithubControlProps {

@@ -1,4 +1,4 @@
-import { Title, Text } from '@mantine/core'
+import { Box, Title, Text } from '@mantine/core'
 import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
@@ -12,7 +12,7 @@ export type CVProps = {
 
 function Name ({ name }: { name: string }) {
   return (
-    <Title ta='center' mt={100}>
+    <Title ta='center' pb={'2rem'}>
       <Text
         inherit
         variant='gradient'
@@ -37,24 +37,24 @@ function Name ({ name }: { name: string }) {
 
 function Synopsis ({ synopsis }: { synopsis: string }) {
   return (
-    <div>
-      <p><MarkdownString markdown={synopsis} /></p>
-    </div>
+    <Text fw={500}>
+      <MarkdownString markdown={synopsis} />
+    </Text>
   )
 }
 
 function Profile ({ profile }: { profile: string }) {
   return (
-    <div>
+    <Box>
       <h2>Profile</h2>
-      <MarkdownParagraph markdown={profile} />
-    </div>
+      <MarkdownParagraph pl="2rem" markdown={profile} />
+    </Box>
   )
 }
 
 export function CV ({ cvdata }: CVProps) {
   return (
-    <div className='cv'>
+    <Box>
       <Name name={cvdata.name} />
       <Synopsis synopsis={cvdata.synopsis} />
       <Profile profile={cvdata.profile} />
@@ -64,6 +64,6 @@ export function CV ({ cvdata }: CVProps) {
         programmingLanguagesData={cvdata.programmingLanguages}
       />
       <OpenSourceProjects openSourceProjectsData={cvdata.openSourceProjects} />
-    </div>
+    </Box>
   )
 }

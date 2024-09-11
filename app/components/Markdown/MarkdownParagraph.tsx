@@ -1,10 +1,17 @@
+import { Text, TextProps } from '@mantine/core'
 import { splitParagraphs } from './Parser'
 import { MarkdownString } from './MarkdownString'
+import classes from './MarkdownParagraph.module.css'
+import cx from 'clsx'
 
-export function MarkdownParagraph({ markdown }: { markdown: string | React.ReactNode[] }) {
+export type MarkdownParagraphProps = {
+    markdown: string | React.ReactNode[];
+    className?: string
+}
+
+export function MarkdownParagraph({ className, markdown, ...others }: MarkdownParagraphProps & TextProps) {
     const paras = splitParagraphs(markdown)
-    return <div>{paras.map((para, idx) => {
-        // eslint-disable-next-line react/jsx-key
-        return <p key={idx}><MarkdownString markdown={para} /></p>
-    }, markdown)}</div>
+    return <>{paras.map((para, idx) => {
+        return <Text className={cx(className, classes.paragraph)} key={idx} {...others}><MarkdownString markdown={para} /></Text>
+    }, markdown)}</>
 }

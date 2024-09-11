@@ -19,7 +19,7 @@ function _HeaderControl({
   ...others
 }: HeaderControlProps) {
   return (
-    <Tooltip lightHidden={lightHidden} darkHidden={darkHidden} label={tooltip}>
+    <Tooltip inline lightHidden={lightHidden} darkHidden={darkHidden} label={tooltip}>
       <UnstyledButton
         lightHidden={lightHidden} darkHidden={darkHidden}
         className={cx(classes.control, className)}

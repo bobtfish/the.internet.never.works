@@ -1,26 +1,28 @@
-import { Link } from '@remix-run/react'
 import {
   AppShell,
-  Container,
   RemoveScroll,
 } from '@mantine/core'
+import cx from 'clsx';
 import { LoadingDelay } from '~/components'
-import { HeaderControls } from './Header'
+import { Header } from './Header'
 import classes from './Shell.module.css'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
-import logo from './logo.png'
 
 interface ShellProps {
   children: React.ReactNode
 }
 
 export function Shell ({ children }: ShellProps) {
+  const headerHeight = 'calc(3.75rem * var(--mantine-scale))'
   const opened = true
   return (
     <AppShell
-      header={{ height: 60 }}
+      header={{
+        height: headerHeight,
+        //offset: false
+      }}
       navbar={{
         width: '8rem',
         breakpoint: 'sm',
@@ -29,25 +31,15 @@ export function Shell ({ children }: ShellProps) {
       footer={{
         height: '3rem'
       }}
-      padding='sm'
+      padding='0px'
     >
-      <AppShell.Header className={RemoveScroll.classNames.zeroRight}>
-        <Container size='xl' px='md' className={classes.header}>
-          <Link to='/' className='mantine-focus-never'>
-            <img src={logo} alt='Homepage' style={{ height: '50px' }} />
-          </Link>
-
-          <HeaderControls
-            githubLink='https://github.com/bobtfish/the.internet.never.works/'
-            linkedInLink='https://www.linkedin.com/in/tomasdoran/'
-            visibleFrom='md'
-          />
-        </Container>
+      <AppShell.Header className={cx(classes.header, RemoveScroll.classNames.zeroRight)}>
+         <Header />
       </AppShell.Header>
       <AppShell.Navbar>
         <Navbar />
       </AppShell.Navbar>
-      <AppShell.Main>
+      <AppShell.Main pt={headerHeight}>
         <LoadingDelay>
           {children}
         </LoadingDelay>
