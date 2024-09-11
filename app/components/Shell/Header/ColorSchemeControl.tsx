@@ -1,4 +1,4 @@
-import { IconMoon, IconSun } from '@tabler/icons-react'
+import { SunIcon, MoonIcon } from '~/components'
 import { useMantineColorScheme } from '@mantine/core'
 import { HeaderControl } from './HeaderControl'
 import classes from './ColorSchemeControl.module.css'
@@ -14,7 +14,7 @@ export function ColorSchemeControl () {
         tooltip={'Dark mode'}
         aria-label='Toggle color scheme'
       >
-        <IconMoon className={classes.icon} stroke={1.5} />
+        <MoonIcon className={classes.icon} />
       </HeaderControl>
       <HeaderControl
         lightHidden
@@ -22,7 +22,7 @@ export function ColorSchemeControl () {
         tooltip={'Light mode'}
         aria-label='Toggle color scheme'
       >
-        <IconSun className={classes.icon} stroke={1.5} />
+        <SunIcon className={classes.icon} />
       </HeaderControl>
     </>
   )

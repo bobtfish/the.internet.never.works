@@ -9,4 +9,5 @@ export * from './VSCodeIcon'
 export * from './LambdaIcon'
 export * from './CDKIcon'
 export * from './TerraformIcon'
-
+export * from './SunIcon'
+export * from './MoonIcon'
