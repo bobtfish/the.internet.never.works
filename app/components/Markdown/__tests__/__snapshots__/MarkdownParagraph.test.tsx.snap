@@ -1,23 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`paragraphs - no markdown 1`] = `
-<div>
-  <p>
+[
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       foo
     </span>
-  </p>
-  <p>
+  </p>,
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       bar
     </span>
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`paragraphs - with markdown 1`] = `
-<div>
-  <p>
+[
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       foo
       <a
@@ -26,28 +35,37 @@ exports[`paragraphs - with markdown 1`] = `
         a link
       </a>
     </span>
-  </p>
-  <p>
+  </p>,
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       bar
     </span>
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`plain text - no markdown 1`] = `
-<div>
-  <p>
+[
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       hello world
     </span>
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`with markdown 1`] = `
-<div>
-  <p>
+[
+  <p
+    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <span>
       <a
         href="http://www.somesite.com/"
@@ -56,6 +74,6 @@ exports[`with markdown 1`] = `
       </a>
        hello world
     </span>
-  </p>
-</div>
+  </p>,
+]
 `;

@@ -1,4 +1,4 @@
-import renderer from 'react-test-renderer';
+import renderer from '~/testing-utils/renderer'
 
 import { MarkdownString } from '../MarkdownString'
 

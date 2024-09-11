@@ -1,18 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`plain text - no markdown 1`] = `
-<span>
-  hello world
-</span>
+[
+  <span>
+    hello world
+  </span>,
+]
 `;
 
 exports[`with markdown 1`] = `
-<span>
-  <a
-    href="http://www.somesite.com/"
-  >
-    a link
-  </a>
-   hello world
-</span>
+[
+  <span>
+    <a
+      href="http://www.somesite.com/"
+    >
+      a link
+    </a>
+     hello world
+  </span>,
+]
 `;
