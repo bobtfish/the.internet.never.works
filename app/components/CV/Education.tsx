@@ -1,3 +1,4 @@
+import { Title } from '@mantine/core'
 import type { Education as EducationData } from '~/data/CV'
 
 export type EducationProps = {
@@ -20,11 +21,11 @@ export function EducationList ({ educationData }: EducationProps) {
 
 export function Education ({ educationData }: EducationProps) {
   return (
-    <div>
-      <h2>Education</h2>
+    <>
+      <Title order={2}>Education</Title>
       <ul>
         <EducationList educationData={educationData} />
       </ul>
-    </div>
+    </>
   )
 }

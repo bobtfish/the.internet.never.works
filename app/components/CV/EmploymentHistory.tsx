@@ -1,3 +1,4 @@
+import { Title } from '@mantine/core'
 import { MarkdownString } from '~/components'
 import type { Employment as EmploymentData } from '~/data/CV'
 
@@ -56,11 +57,11 @@ export function EmploymentHistory ({
   employmentHistoryData
 }: EmploymentHistoryProps) {
   return (
-    <div>
-      <h2>Employment History</h2>
+    <>
+      <Title order={2}>Employment History</Title>
       <ul>
         <EmploymentHistoryList employmentHistoryData={employmentHistoryData} />
       </ul>
-    </div>
+    </>
   )
 }

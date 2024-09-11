@@ -12,6 +12,6 @@ export type MarkdownParagraphProps = {
 export function MarkdownParagraph({ className, markdown, ...others }: MarkdownParagraphProps & TextProps) {
     const paras = splitParagraphs(markdown)
     return <>{paras.map((para, idx) => {
-        return <Text className={cx(className, classes.paragraph)} key={idx} {...others}><MarkdownString markdown={para} /></Text>
+        return <Text className={cx( classes.paragraph)} key={idx} {...others}><MarkdownString markdown={para} /></Text>
     }, markdown)}</>
 }

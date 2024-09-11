@@ -12,7 +12,7 @@ export type CVProps = {
 
 function Name ({ name }: { name: string }) {
   return (
-    <Title ta='center' pb={'2rem'}>
+    <Title ta='center' pb='var(--mantine-spacing-xs)'>
       <Text
         inherit
         variant='gradient'
@@ -37,7 +37,7 @@ function Name ({ name }: { name: string }) {
 
 function Synopsis ({ synopsis }: { synopsis: string }) {
   return (
-    <Text fw={500}>
+    <Text ta='center' fw={500}>
       <MarkdownString markdown={synopsis} />
     </Text>
   )
@@ -46,8 +46,8 @@ function Synopsis ({ synopsis }: { synopsis: string }) {
 function Profile ({ profile }: { profile: string }) {
   return (
     <Box>
-      <h2>Profile</h2>
-      <MarkdownParagraph pl="2rem" markdown={profile} />
+      <Title order={2}>Profile</Title>
+      <MarkdownParagraph markdown={profile} />
     </Box>
   )
 }

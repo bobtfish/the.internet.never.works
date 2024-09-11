@@ -1,5 +1,14 @@
+.root {
+  --app-shell-header-offset: calc(var(--app-shell-header-height) + var(--mantine-spacing-sm));
+  --app-shell-navbar-offset: calc(var(--app-shell-navbar-width) + var(--mantine-spacing-sm));
+}
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: var(--mantine-spacing-md);
+}
+.main {
+  padding-top: var(--app-shell-header-offset);
+  margin-right: var(--mantine-spacing-md);
 }

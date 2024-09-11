@@ -15,12 +15,11 @@ interface ShellProps {
 }
 
 export function Shell ({ children }: ShellProps) {
-  const headerHeight = 'calc(3.75rem * var(--mantine-scale))'
   const opened = true
   return (
     <AppShell
       header={{
-        height: headerHeight,
+        height: '60px', // Note this isn't actually a fixed size, it's recalculated in terms of page scale
         //offset: false
       }}
       navbar={{
@@ -32,14 +31,19 @@ export function Shell ({ children }: ShellProps) {
         height: '3rem'
       }}
       padding='0px'
+      classNames={{
+        root: classes.root,
+        header: cx(classes.header, RemoveScroll.classNames.zeroRight),
+        main: classes.main,
+      }}
     >
-      <AppShell.Header className={cx(classes.header, RemoveScroll.classNames.zeroRight)}>
+      <AppShell.Header>
          <Header />
       </AppShell.Header>
       <AppShell.Navbar>
         <Navbar />
       </AppShell.Navbar>
-      <AppShell.Main pt={headerHeight}>
+      <AppShell.Main>
         <LoadingDelay>
           {children}
         </LoadingDelay>

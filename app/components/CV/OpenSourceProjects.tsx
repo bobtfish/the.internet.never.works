@@ -1,3 +1,4 @@
+import { Title } from '@mantine/core'
 import { MarkdownString } from '~/components'
 import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
 
@@ -30,11 +31,11 @@ export function OpenSourceProjects ({
   openSourceProjectsData
 }: OpenSourceHistoryProps) {
   return (
-    <div>
-      <h2>Open Source Projects</h2>
+    <>
+      <Title order={2}>Open Source Projects</Title>
       <ul>
         <OpenSourceProjectsList openSourceProjectsData={openSourceProjectsData} />
       </ul>
-    </div>
+    </>
   )
 }
