@@ -1,4 +1,4 @@
-import { Title } from '@mantine/core'
+import { Title, Box } from '@mantine/core'
 import type { ProgrammingLanguage as ProgrammingLanguageData } from '~/data/CV'
 
 export type ProgrammingLanguagesProps = {
@@ -14,16 +14,17 @@ export function ProgrammingLanguagesList ({
 }
 
 export function ProgrammingLanguages ({
-  programmingLanguagesData
-}: ProgrammingLanguagesProps) {
+  programmingLanguagesData,
+  style
+}: ProgrammingLanguagesProps & {style: React.CSSProperties}) {
   return (
-    <>
+    <Box style={style}>
       <Title order={2}>Programming Languages</Title>
       <ul>
         <ProgrammingLanguagesList
           programmingLanguagesData={programmingLanguagesData}
         />
       </ul>
-    </>
+    </Box>
   )
 }

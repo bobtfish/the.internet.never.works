@@ -7,9 +7,11 @@ export function MarkdownString({ markdown, styles, anchorProps, anchorTarget, ..
     const anchorStyles = styles?.anchor
     anchorTarget ||= 'self'
     const links = parseLinks(markdown)
-    return <Text {...textProps} span component='span' styles={{root: styles?.root}}>{links.reduce((acc, { match, text, url }) => {
-        return reactStringReplace(acc, match, (_match, i) => (
-            <Anchor {...anchorProps} target={'_' + anchorTarget} key={i} href={url} styles={{root: anchorStyles}}>{text}</Anchor>
-        ))
-    }, markdown)}</Text>
+    return <Text {...textProps} span component='span' styles={{root: styles?.root}}>{
+        links.reduce((acc, { match, text, url }, i) => {
+            return reactStringReplace(acc, match, (_match, j) => (
+                <Anchor {...anchorProps} target={'_' + anchorTarget} key={i+'-'+j} href={url} styles={{root: anchorStyles}}>{text}</Anchor>
+            ))
+        }, markdown)
+    }</Text>
 }

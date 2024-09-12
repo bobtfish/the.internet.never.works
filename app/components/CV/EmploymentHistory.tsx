@@ -18,15 +18,29 @@ export type EmploymentHistoryProps = {
   employmentHistoryData: EmploymentData[]
 }
 
-function EmploymentAccomplishments ({ employment }: { employment: EmploymentData }) {
-return ( <><Title order={4}>Accomplishments:</Title>
-  <List>
-    {employment.accomplishments.map((accomplishment, idx) => (
-      <List.Item pl="md" key={idx}>
-        <MarkdownString markdown={accomplishment.description} anchorTarget='blank' anchorProps={{underline: 'always', c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'}}/>
-      </List.Item>
-    ))}
-  </List></>)
+function EmploymentAccomplishments ({
+  employment
+}: {
+  employment: EmploymentData
+}) {
+  return (
+    <>
+      <List>
+        {employment.accomplishments.map((accomplishment, idx) => (
+          <List.Item pl='md' key={idx}>
+            <MarkdownString
+              markdown={accomplishment.description}
+              anchorTarget='blank'
+              anchorProps={{
+                underline: 'always',
+                c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
+              }}
+            />
+          </List.Item>
+        ))}
+      </List>
+    </>
+  )
 }
 
 function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
@@ -34,8 +48,10 @@ function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
   if (numPositions == 1) return
   return (
     <>
-      <Title order={4} pb="sm">Timeline:</Title>
-      <Timeline pl="lg" bulletSize={24} lineWidth={2}>
+      <Title order={4} pb='sm'>
+        Timeline:
+      </Title>
+      <Timeline pl='lg' bulletSize={24} lineWidth={2}>
         {employment.positions.map((position, idx) => (
           <Timeline.Item key={idx} title={position.title}>
             <Text c='dimmed' size='sm'>
@@ -44,7 +60,14 @@ function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
           </Timeline.Item>
         ))}
       </Timeline>
-      <Divider w="80%" mt="lg" pb="sm" ml="auto" mr="auto" color="light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))" />
+      <Divider
+        w='80%'
+        mt='lg'
+        pb='sm'
+        ml='auto'
+        mr='auto'
+        color='light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
+      />
     </>
   )
 }
@@ -59,8 +82,9 @@ function EmploymentItem ({ employment }: { employment: EmploymentData }) {
 }
 
 export function EmploymentHistory ({
-  employmentHistoryData
-}: EmploymentHistoryProps) {
+  employmentHistoryData,
+  style
+}: EmploymentHistoryProps & {style: React.CSSProperties}) {
   const employmentHistoryList = employmentHistoryData.map(employment => (
     <Accordion.Item key={employment.companyName} value={employment.companyName}>
       <Accordion.Control>
@@ -72,7 +96,7 @@ export function EmploymentHistory ({
     </Accordion.Item>
   ))
   return (
-    <>
+    <Box style={style}>
       <Title order={2}>Employment History</Title>
       <Accordion
         chevronPosition='left'
@@ -82,7 +106,7 @@ export function EmploymentHistory ({
       >
         {employmentHistoryList}
       </Accordion>
-    </>
+    </Box>
   )
 }
 

@@ -1,5 +1,12 @@
-import { useState } from 'react'
-import { SegmentedControl, Box, Title, Text } from '@mantine/core'
+import { useState, useEffect } from 'react'
+import {
+  SegmentedControl,
+  Box,
+  Title,
+  Text,
+  Transition,
+  MantineTransition
+} from '@mantine/core'
 import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
@@ -44,9 +51,15 @@ function Synopsis ({ synopsis }: { synopsis: string }) {
   )
 }
 
-function Profile ({ profile }: { profile: string }) {
+function Profile ({
+  profile,
+  style
+}: {
+  profile: string
+  style: React.CSSProperties
+}) {
   return (
-    <Box>
+    <Box style={style}>
       <Title order={2}>Profile</Title>
       <MarkdownParagraph
         anchorProps={{
@@ -76,13 +89,86 @@ export function CV ({ cvdata }: CVProps) {
       />
       <Name name={cvdata.name} />
       <Synopsis synopsis={cvdata.synopsis} />
-      <Profile profile={cvdata.profile} />
-      <EmploymentHistory employmentHistoryData={cvdata.employmentHistory} />
-      <Education educationData={cvdata.education} />
-      <ProgrammingLanguages
-        programmingLanguagesData={cvdata.programmingLanguages}
-      />
-      <OpenSourceProjects openSourceProjectsData={cvdata.openSourceProjects} />
+      <MyTransition selected={value === 'Profile'}>
+        {styles => <Profile style={styles} profile={cvdata.profile} />}
+      </MyTransition>
+      <MyTransition selected={value === 'Employment'}>
+        {styles => (
+          <EmploymentHistory
+            style={styles}
+            employmentHistoryData={cvdata.employmentHistory}
+          />
+        )}
+      </MyTransition>
+      <MyTransition selected={value === 'Education'}>
+        {styles => (
+          <Education style={styles} educationData={cvdata.education} />
+        )}
+      </MyTransition>
+      <MyTransition selected={value === 'Languages'}>
+        {styles => (
+          <ProgrammingLanguages
+            style={styles}
+            programmingLanguagesData={cvdata.programmingLanguages}
+          />
+        )}
+      </MyTransition>
+      <MyTransition selected={value === 'Open Source'}>
+        {styles => (
+          <OpenSourceProjects
+            style={styles}
+            openSourceProjectsData={cvdata.openSourceProjects}
+          />
+        )}
+      </MyTransition>
     </Box>
+  )
+}
+
+type MyTransitionProps = {
+  selected: boolean
+  children: (styles: React.CSSProperties) => JSX.Element
+  transition?: MantineTransition
+  duration?: number
+}
+
+function MyWrapper ({
+  children,
+  styles,
+  setHasRendered
+}: {
+  styles: React.CSSProperties
+  children: (styles: React.CSSProperties) => JSX.Element
+  setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
+}) {
+  useEffect(() => {
+    setHasRendered(true)
+  })
+  return children(styles)
+}
+
+function MyTransition ({
+  duration,
+  selected,
+  children,
+  transition
+}: MyTransitionProps) {
+  const [hasRendered, setHasRendered] = useState(false)
+  return (
+    <Transition
+      mounted={hasRendered ? selected : true}
+      transition={transition || 'fade'}
+      keepMounted={true}
+      duration={2000}
+    >
+      {styles => (
+        <MyWrapper
+          setHasRendered={setHasRendered}
+          styles={!selected && !hasRendered ? { display: 'none' } : styles}
+        >
+          {children}
+        </MyWrapper>
+      )}
+    </Transition>
   )
 }
