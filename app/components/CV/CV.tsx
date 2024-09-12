@@ -1,4 +1,5 @@
-import { Box, Title, Text } from '@mantine/core'
+import { useState } from 'react'
+import { SegmentedControl, Box, Title, Text } from '@mantine/core'
 import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
 import { EmploymentHistory } from './EmploymentHistory'
@@ -47,17 +48,32 @@ function Profile ({ profile }: { profile: string }) {
   return (
     <Box>
       <Title order={2}>Profile</Title>
-      <MarkdownParagraph anchorProps={{
-                underline: 'always',
-                c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
-              }} markdown={profile} />
+      <MarkdownParagraph
+        anchorProps={{
+          underline: 'always',
+          c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
+        }}
+        markdown={profile}
+      />
     </Box>
   )
 }
 
 export function CV ({ cvdata }: CVProps) {
+  const [value, setValue] = useState('Profile')
   return (
     <Box>
+      <SegmentedControl
+        value={value}
+        onChange={setValue}
+        data={[
+          'Profile',
+          'Employment',
+          'Education',
+          'Languages',
+          'Open Source'
+        ]}
+      />
       <Name name={cvdata.name} />
       <Synopsis synopsis={cvdata.synopsis} />
       <Profile profile={cvdata.profile} />
