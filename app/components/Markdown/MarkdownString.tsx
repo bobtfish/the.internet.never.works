@@ -1,11 +1,15 @@
+import { Anchor, Text} from '@mantine/core';
 import reactStringReplace from 'react-string-replace';
 import { parseLinks } from './Parser'
+import type { MarkdownStringProps } from './types'
 
-export function MarkdownString({ markdown }: { markdown: string | React.ReactNode[] }) {
+export function MarkdownString({ markdown, styles, anchorProps, anchorTarget, ...textProps }: MarkdownStringProps) {
+    const anchorStyles = styles?.anchor
+    anchorTarget ||= 'self'
     const links = parseLinks(markdown)
-    return <span>{links.reduce((acc, { match, text, url }) => {
+    return <Text {...textProps} span component='span' styles={{root: styles?.root}}>{links.reduce((acc, { match, text, url }) => {
         return reactStringReplace(acc, match, (_match, i) => (
-            <a key={i} href={url}>{text}</a>
+            <Anchor {...anchorProps} target={'_' + anchorTarget} key={i} href={url} styles={{root: anchorStyles}}>{text}</Anchor>
         ))
-    }, markdown)}</span>
+    }, markdown)}</Text>
 }

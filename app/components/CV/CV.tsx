@@ -47,7 +47,10 @@ function Profile ({ profile }: { profile: string }) {
   return (
     <Box>
       <Title order={2}>Profile</Title>
-      <MarkdownParagraph markdown={profile} />
+      <MarkdownParagraph anchorProps={{
+                underline: 'always',
+                c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
+              }} markdown={profile} />
     </Box>
   )
 }

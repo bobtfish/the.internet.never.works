@@ -17,3 +17,12 @@ test('with markdown', () => {
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 })
+
+test('with multiple links', () => {
+  const input = "begin text[a link](http://www.somesite.com/) middle filler [another link](http://www.othersite.com/)end text"
+  const component = renderer.create(
+    <MarkdownString markdown={input} />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+})

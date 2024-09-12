@@ -2,7 +2,10 @@
 
 exports[`plain text - no markdown 1`] = `
 [
-  <span>
+  <span
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     hello world
   </span>,
 ]
@@ -10,13 +13,51 @@ exports[`plain text - no markdown 1`] = `
 
 exports[`with markdown 1`] = `
 [
-  <span>
+  <span
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
     <a
+      className="mantine-focus-auto m_849cf0da m_b6d8b162 mantine-Text-root mantine-Anchor-root"
+      data-underline="hover"
       href="http://www.somesite.com/"
+      style={{}}
+      target="_self"
     >
       a link
     </a>
      hello world
+  </span>,
+]
+`;
+
+exports[`with multiple links 1`] = `
+[
+  <span
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={{}}
+  >
+    begin text
+    <a
+      className="mantine-focus-auto m_849cf0da m_b6d8b162 mantine-Text-root mantine-Anchor-root"
+      data-underline="hover"
+      href="http://www.somesite.com/"
+      style={{}}
+      target="_self"
+    >
+      a link
+    </a>
+     middle filler 
+    <a
+      className="mantine-focus-auto m_849cf0da m_b6d8b162 mantine-Text-root mantine-Anchor-root"
+      data-underline="hover"
+      href="http://www.othersite.com/"
+      style={{}}
+      target="_self"
+    >
+      another link
+    </a>
+    end text
   </span>,
 ]
 `;

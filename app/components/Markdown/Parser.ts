@@ -1,4 +1,4 @@
-const regexMdLinks = /\[([^[]+)\]\((.*)\)/gm
+const regexMdLinks = /\[([^[]+)\]\(([^)]*)\)/gm
 
 export type MarkdownLink = {
   match: string

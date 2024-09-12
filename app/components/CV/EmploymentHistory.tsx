@@ -1,67 +1,163 @@
-import { Title } from '@mantine/core'
+import {
+  Title,
+  Accordion,
+  Anchor,
+  Text,
+  Group,
+  Box,
+  Timeline,
+  Divider,
+  List
+} from '@mantine/core'
+import cx from 'clsx'
 import { MarkdownString } from '~/components'
+import classes from './EmploymentHistory.module.css'
 import type { Employment as EmploymentData } from '~/data/CV'
 
 export type EmploymentHistoryProps = {
   employmentHistoryData: EmploymentData[]
 }
 
-function EmploymentDates ({ employment }: { employment: EmploymentData }) {
-  const numPositions = employment.positions.length
-  const endDate = employment.positions[0].endDate
-  const startDate = employment.positions[numPositions-1].startDate
-  if (numPositions == 1) {
-    return (
-      <div>{startDate} - {endDate}: {employment.positions[0].title}</div>
-    )
-  }
-  return (
-    <div>
-      <div>{startDate} - {endDate}</div>
-      <ul>
-        {employment.positions.map(position => (
-          <li key={position.title}>{position.startDate} - {position.endDate}: {position.title}</li>
-        ))}
-      </ul>
-    </div>
-  )
+function EmploymentAccomplishments ({ employment }: { employment: EmploymentData }) {
+return ( <><Title order={4}>Accomplishments:</Title>
+  <List>
+    {employment.accomplishments.map((accomplishment, idx) => (
+      <List.Item pl="md" key={idx}>
+        <MarkdownString markdown={accomplishment.description} anchorTarget='blank' anchorProps={{underline: 'always', c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'}}/>
+      </List.Item>
+    ))}
+  </List></>)
 }
-function EmploymentItem ({ employment }: { employment: EmploymentData }) {
+
+function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
+  const numPositions = employment.positions.length
+  if (numPositions == 1) return
   return (
-    <div>
-      <h3><a href={employment.url}>{employment.companyName}</a></h3>
-      <EmploymentDates employment={employment} />
-      <h4>Accomplishments:</h4>
-      <ul className="accomplishments">
-        {employment.accomplishments.map((accomplishment, idx) => (
-          <li key={idx}>
-            <MarkdownString markdown={accomplishment.description} />
-          </li>
+    <>
+      <Title order={4} pb="sm">Timeline:</Title>
+      <Timeline pl="lg" bulletSize={24} lineWidth={2}>
+        {employment.positions.map((position, idx) => (
+          <Timeline.Item key={idx} title={position.title}>
+            <Text c='dimmed' size='sm'>
+              {position.startDate} - {position.endDate}
+            </Text>
+          </Timeline.Item>
         ))}
-      </ul>
-    </div>
+      </Timeline>
+      <Divider w="80%" mt="lg" pb="sm" ml="auto" mr="auto" color="light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))" />
+    </>
   )
 }
 
-function EmploymentHistoryList ({
-  employmentHistoryData
-}: EmploymentHistoryProps) {
-  return employmentHistoryData.map(employment => (
-    <li key={employment.companyName}>
-      <EmploymentItem employment={employment} />
-    </li>
-  ))
+function EmploymentItem ({ employment }: { employment: EmploymentData }) {
+  return (
+    <>
+      <EmploymentFullDates employment={employment} />
+      <EmploymentAccomplishments employment={employment} />
+    </>
+  )
 }
 
 export function EmploymentHistory ({
   employmentHistoryData
 }: EmploymentHistoryProps) {
+  const employmentHistoryList = employmentHistoryData.map(employment => (
+    <Accordion.Item key={employment.companyName} value={employment.companyName}>
+      <Accordion.Control>
+        <EmploymentControl employment={employment} />
+      </Accordion.Control>
+      <Accordion.Panel>
+        <EmploymentItem employment={employment} />
+      </Accordion.Panel>
+    </Accordion.Item>
+  ))
   return (
     <>
       <Title order={2}>Employment History</Title>
-      <ul>
-        <EmploymentHistoryList employmentHistoryData={employmentHistoryData} />
-      </ul>
+      <Accordion
+        chevronPosition='left'
+        variant='subtle'
+        multiple
+        classNames={classes}
+      >
+        {employmentHistoryList}
+      </Accordion>
     </>
+  )
+}
+
+function EmploymentControl ({ employment }: { employment: EmploymentData }) {
+  return (
+    <Group justify='space-between' wrap='nowrap'>
+      <EmploymentControlCompanyName employment={employment} />
+      <EmploymentControlJobTitle employment={employment} />
+      <EmploymentControlJobDates employment={employment} />
+    </Group>
+  )
+}
+
+function EmploymentControlCompanyName ({
+  employment
+}: {
+  employment: EmploymentData
+}) {
+  return (
+    <Box
+      className={cx(
+        classes.employmentControlCompanyName,
+        classes.employmentControlGroupChild
+      )}
+    >
+      <Title order={3}>
+        <Anchor
+          className={classes.employmentControlCompanyNameAnchor}
+          inherit
+          underline='hover'
+          href={employment.url}
+        >
+          {employment.companyName}
+        </Anchor>
+      </Title>
+    </Box>
+  )
+}
+
+function EmploymentControlJobTitle ({
+  employment
+}: {
+  employment: EmploymentData
+}) {
+  return (
+    <Text
+      className={cx(
+        classes.employmentControlJobTitle,
+        classes.employmentControlGroupChild
+      )}
+      span
+    >
+      {employment.positions[0].title}
+    </Text>
+  )
+}
+
+function EmploymentControlJobDates ({
+  employment
+}: {
+  employment: EmploymentData
+}) {
+  const numPositions = employment.positions.length
+  const endDate = employment.positions[0].endDate
+  const startDate = employment.positions[numPositions - 1].startDate
+  return (
+    <Text
+      className={cx(
+        classes.employmentControlJobDates,
+        classes.employmentControlGroupChild
+      )}
+      c='dimmed'
+      span
+    >
+      {startDate} - {endDate}
+    </Text>
   )
 }

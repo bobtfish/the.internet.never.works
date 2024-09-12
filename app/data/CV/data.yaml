@@ -15,12 +15,12 @@ employmentHistory:
     positions:
       - title: Group Technical Lead - Core Infrastructure
         startDate: 2022
-        endDate: 2024
+        endDate: August 2024
       - title: Technical Lead
         startDate: 2017
         endDate: 2022
       - title: Site Reliability Engineer
-        startDate: 2013
+        startDate: July 2013
         endDate: 2017
     accomplishments:
       - description: Project lead for a complete redesign of the data streaming infrastructure and platform, optimising reliability, ease of maintenance and development, and to better support business goals. Utilising Flink sqlclient, AWS Flink, Kafka & AWS MSK, Apache Paimon, AWS Redshift & Athena, AWS Glue & Confluent Schema registry.
