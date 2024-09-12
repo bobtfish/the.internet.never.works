@@ -28,13 +28,14 @@ export function Shell ({ children }: ShellProps) {
         collapsed: { mobile: !opened }
       }}
       footer={{
-        height: '3rem'
+        height: '3rem',
       }}
       padding='0px'
       classNames={{
         root: classes.root,
         header: cx(classes.header, RemoveScroll.classNames.zeroRight),
         main: classes.main,
+        footer: classes.footer,
       }}
     >
       <AppShell.Header>

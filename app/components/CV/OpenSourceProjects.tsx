@@ -1,4 +1,4 @@
-import { Title, Box } from '@mantine/core'
+import { Title } from '@mantine/core'
 import { MarkdownString } from '~/components'
 import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
 
@@ -27,16 +27,14 @@ function OpenSourceProjectsList ({
     }
 
 export function OpenSourceProjects ({
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
   openSourceProjectsData,
-  style
-}: OpenSourceHistoryProps & {style: React.CSSProperties}) {
+}: OpenSourceHistoryProps) {
   return (
-    <Box style={style}>
+    <>
       <Title order={2}>Open Source Projects</Title>
       <ul>
         <OpenSourceProjectsList openSourceProjectsData={openSourceProjectsData} />
       </ul>
-    </Box>
+    </>
   )
 }

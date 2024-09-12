@@ -83,8 +83,7 @@ function EmploymentItem ({ employment }: { employment: EmploymentData }) {
 
 export function EmploymentHistory ({
   employmentHistoryData,
-  style
-}: EmploymentHistoryProps & {style: React.CSSProperties}) {
+}: EmploymentHistoryProps) {
   const employmentHistoryList = employmentHistoryData.map(employment => (
     <Accordion.Item key={employment.companyName} value={employment.companyName}>
       <Accordion.Control>
@@ -96,7 +95,7 @@ export function EmploymentHistory ({
     </Accordion.Item>
   ))
   return (
-    <Box style={style}>
+    <>
       <Title order={2}>Employment History</Title>
       <Accordion
         chevronPosition='left'
@@ -106,7 +105,7 @@ export function EmploymentHistory ({
       >
         {employmentHistoryList}
       </Accordion>
-    </Box>
+    </>
   )
 }
 

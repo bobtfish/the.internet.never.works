@@ -5,7 +5,7 @@ import {
   Title,
   Text,
   Transition,
-  MantineTransition
+  MantineTransition,
 } from '@mantine/core'
 import { MarkdownParagraph, MarkdownString } from '~/components'
 import type { CV as CVData } from '~/data/CV'
@@ -13,6 +13,7 @@ import { EmploymentHistory } from './EmploymentHistory'
 import { Education } from './Education'
 import { ProgrammingLanguages } from './ProgrammingLanguages'
 import { OpenSourceProjects } from './OpenSourceProjects'
+import classes from './CV.module.css'
 
 export type CVProps = {
   cvdata: CVData
@@ -45,7 +46,7 @@ function Name ({ name }: { name: string }) {
 
 function Synopsis ({ synopsis }: { synopsis: string }) {
   return (
-    <Text ta='center' fw={500}>
+    <Text ta='center' fw={500} pb="1rem">
       <MarkdownString markdown={synopsis} />
     </Text>
   )
@@ -53,13 +54,11 @@ function Synopsis ({ synopsis }: { synopsis: string }) {
 
 function Profile ({
   profile,
-  style
 }: {
   profile: string
-  style: React.CSSProperties
 }) {
   return (
-    <Box style={style}>
+      <>
       <Title order={2}>Profile</Title>
       <MarkdownParagraph
         anchorProps={{
@@ -68,17 +67,42 @@ function Profile ({
         }}
         markdown={profile}
       />
-    </Box>
+    </>
   )
 }
 
 export function CV ({ cvdata }: CVProps) {
   const [value, setValue] = useState('Profile')
   return (
-    <Box>
+    <Box style={{backgroundColor: 'red', paddingTop: 0, marginTop: 0}}>
+      <Name name={cvdata.name} />
+      <Synopsis synopsis={cvdata.synopsis} />
+      <MyTransition selected={value === 'Profile'}>
+        <Profile profile={cvdata.profile} />
+      </MyTransition>
+      <MyTransition selected={value === 'Employment'}>
+          <EmploymentHistory
+            employmentHistoryData={cvdata.employmentHistory}
+          />
+      </MyTransition>
+      <MyTransition selected={value === 'Education'}>
+          <Education educationData={cvdata.education} />
+      
+      </MyTransition>
+      <MyTransition selected={value === 'Languages'}>
+          <ProgrammingLanguages
+            programmingLanguagesData={cvdata.programmingLanguages}
+          />
+      </MyTransition>
+      <MyTransition selected={value === 'Open Source'}>
+          <OpenSourceProjects
+            openSourceProjectsData={cvdata.openSourceProjects}
+          />
+      </MyTransition>
       <SegmentedControl
+        className={classes.control}
         value={value}
-        onChange={setValue}
+        onChange={(newVal) => {setValue(newVal); console.log('set onChange to ', newVal)}}
         data={[
           'Profile',
           'Employment',
@@ -86,88 +110,60 @@ export function CV ({ cvdata }: CVProps) {
           'Languages',
           'Open Source'
         ]}
+        transitionDuration={3000}
+        fullWidth
       />
-      <Name name={cvdata.name} />
-      <Synopsis synopsis={cvdata.synopsis} />
-      <MyTransition selected={value === 'Profile'}>
-        {styles => <Profile style={styles} profile={cvdata.profile} />}
-      </MyTransition>
-      <MyTransition selected={value === 'Employment'}>
-        {styles => (
-          <EmploymentHistory
-            style={styles}
-            employmentHistoryData={cvdata.employmentHistory}
-          />
-        )}
-      </MyTransition>
-      <MyTransition selected={value === 'Education'}>
-        {styles => (
-          <Education style={styles} educationData={cvdata.education} />
-        )}
-      </MyTransition>
-      <MyTransition selected={value === 'Languages'}>
-        {styles => (
-          <ProgrammingLanguages
-            style={styles}
-            programmingLanguagesData={cvdata.programmingLanguages}
-          />
-        )}
-      </MyTransition>
-      <MyTransition selected={value === 'Open Source'}>
-        {styles => (
-          <OpenSourceProjects
-            style={styles}
-            openSourceProjectsData={cvdata.openSourceProjects}
-          />
-        )}
-      </MyTransition>
     </Box>
+
   )
 }
 
 type MyTransitionProps = {
   selected: boolean
-  children: (styles: React.CSSProperties) => JSX.Element
+  children: JSX.Element
   transition?: MantineTransition
   duration?: number
-}
-
-function MyWrapper ({
-  children,
-  styles,
-  setHasRendered
-}: {
-  styles: React.CSSProperties
-  children: (styles: React.CSSProperties) => JSX.Element
-  setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
-}) {
-  useEffect(() => {
-    setHasRendered(true)
-  })
-  return children(styles)
 }
 
 function MyTransition ({
   duration,
   selected,
   children,
-  transition
+  transition,
 }: MyTransitionProps) {
   const [hasRendered, setHasRendered] = useState(false)
+  const [hasExited, setHasExited] = useState(selected)
+  duration = 3000
+  const TransitionWrapperBox = ({
+    children,
+    styles,
+    setHasRendered,
+  }: {
+    styles: React.CSSProperties
+    children: JSX.Element
+    setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
+  }) => {
+    useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree
+    return <Box style={{...styles, position: 'absolute'}}>{children}</Box>
+  }
+
   return (
     <Transition
-      mounted={hasRendered ? selected : true}
+      mounted={hasRendered ? selected : true} // Force 'mounting' even unselected components initially, to get duration state setup correctly etc
       transition={transition || 'fade'}
-      keepMounted={true}
-      duration={2000}
+      keepMounted={true} // Keep everything mounted at all times for print layout
+      duration={duration}
+      onExit={()=> setHasExited(true)} // No need to set onEnter or onEntered as we will always have exit transitions
+      onExited={()=> setHasExited(true)} // Once the non-active parts have transitioned, return to normal functionality
     >
       {styles => (
-        <MyWrapper
+        <TransitionWrapperBox
           setHasRendered={setHasRendered}
-          styles={!selected && !hasRendered ? { display: 'none' } : styles}
+          styles={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
+                                                                          // so that we don't see a bunch of exit animations on first paint
         >
           {children}
-        </MyWrapper>
+        </TransitionWrapperBox>
       )}
     </Transition>
   )
