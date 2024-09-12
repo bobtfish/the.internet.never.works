@@ -1,6 +1,7 @@
 .root {
-  --app-shell-header-offset: calc(var(--app-shell-header-height) + var(--mantine-spacing-sm));
-  --app-shell-navbar-offset: calc(var(--app-shell-navbar-width) + var(--mantine-spacing-sm));
+  --app-shell-main-margin: var(--mantine-spacing-sm);
+  --app-shell-header-offset: calc(var(--app-shell-header-height) + var(--app-shell-main-margin));
+  --app-shell-navbar-offset: calc(var(--app-shell-navbar-width) + var(--app-shell-main-margin));
 }
 .header {
   display: flex;
@@ -10,5 +11,5 @@
 }
 .main {
   padding-top: var(--app-shell-header-offset);
-  margin-right: var(--mantine-spacing-md);
+  margin-right: var(--app-shell-main-margin);
 }

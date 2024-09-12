@@ -1,0 +1,8 @@
+.control {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: calc(var(--app-shell-footer-height) + env(safe-area-inset-bottom) + var(--app-shell-main-margin));
+    margin-left: var(--app-shell-navbar-offset);
+    margin-right: var(--app-shell-main-margin);
+    inset-inline: 0;
+}
