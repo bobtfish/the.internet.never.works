@@ -1,4 +1,4 @@
-import { Title } from '@mantine/core'
+import { Title, List, Box } from '@mantine/core'
 import type { ProgrammingLanguage as ProgrammingLanguageData } from '~/data/CV'
 
 export type ProgrammingLanguagesProps = {
@@ -9,7 +9,7 @@ export function ProgrammingLanguagesList ({
   programmingLanguagesData
 }: ProgrammingLanguagesProps) {
   return programmingLanguagesData.map(programmingLanguage => (
-    <li key={programmingLanguage}>{programmingLanguage}</li>
+    <List.Item key={programmingLanguage}>{programmingLanguage}</List.Item>
   ))
 }
 
@@ -17,13 +17,13 @@ export function ProgrammingLanguages ({
   programmingLanguagesData,
 }: ProgrammingLanguagesProps) {
   return (
-    <>
+    <Box>
       <Title order={2}>Programming Languages</Title>
-      <ul>
+      <List>
         <ProgrammingLanguagesList
           programmingLanguagesData={programmingLanguagesData}
         />
-      </ul>
-    </>
+      </List>
+    </Box>
   )
 }

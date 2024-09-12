@@ -11,7 +11,7 @@ import {
 } from '@mantine/core'
 import cx from 'clsx'
 import { MarkdownString } from '~/components'
-import classes from './EmploymentHistory.module.css'
+import classes from './CV.module.css'
 import type { Employment as EmploymentData } from '~/data/CV'
 
 export type EmploymentHistoryProps = {
@@ -29,6 +29,7 @@ function EmploymentAccomplishments ({
         {employment.accomplishments.map((accomplishment, idx) => (
           <List.Item pl='md' key={idx}>
             <MarkdownString
+              classNames={{anchor: classes.anchor}}
               markdown={accomplishment.description}
               anchorTarget='blank'
               anchorProps={{
@@ -87,7 +88,7 @@ export function EmploymentHistory ({
   const employmentHistoryList = employmentHistoryData.map(employment => (
     <Accordion.Item key={employment.companyName} value={employment.companyName}>
       <Accordion.Control>
-        <EmploymentControl employment={employment} />
+        <EmploymentHistoryControl employment={employment} />
       </Accordion.Control>
       <Accordion.Panel>
         <EmploymentItem employment={employment} />
@@ -101,7 +102,7 @@ export function EmploymentHistory ({
         chevronPosition='left'
         variant='subtle'
         multiple
-        classNames={classes}
+        classNames={{item: classes.employmentHistoryItem, root: classes.employmentHistoryAccordian}}
       >
         {employmentHistoryList}
       </Accordion>
@@ -109,17 +110,17 @@ export function EmploymentHistory ({
   )
 }
 
-function EmploymentControl ({ employment }: { employment: EmploymentData }) {
+function EmploymentHistoryControl ({ employment }: { employment: EmploymentData }) {
   return (
     <Group justify='space-between' wrap='nowrap'>
-      <EmploymentControlCompanyName employment={employment} />
-      <EmploymentControlJobTitle employment={employment} />
-      <EmploymentControlJobDates employment={employment} />
+      <EmploymentHistoryControlCompanyName employment={employment} />
+      <EmploymentHistoryControlJobTitle employment={employment} />
+      <EmploymentHistoryControlJobDates employment={employment} />
     </Group>
   )
 }
 
-function EmploymentControlCompanyName ({
+function EmploymentHistoryControlCompanyName ({
   employment
 }: {
   employment: EmploymentData
@@ -127,13 +128,13 @@ function EmploymentControlCompanyName ({
   return (
     <Box
       className={cx(
-        classes.employmentControlCompanyName,
-        classes.employmentControlGroupChild
+        classes.employmentHistoryControlCompanyName,
+        classes.employmentHistoryControlGroupChild
       )}
     >
       <Title order={3}>
         <Anchor
-          className={classes.employmentControlCompanyNameAnchor}
+          className={classes.employmentHistoryControlCompanyNameAnchor}
           inherit
           underline='hover'
           href={employment.url}
@@ -145,7 +146,7 @@ function EmploymentControlCompanyName ({
   )
 }
 
-function EmploymentControlJobTitle ({
+function EmploymentHistoryControlJobTitle ({
   employment
 }: {
   employment: EmploymentData
@@ -153,8 +154,8 @@ function EmploymentControlJobTitle ({
   return (
     <Text
       className={cx(
-        classes.employmentControlJobTitle,
-        classes.employmentControlGroupChild
+        classes.employmentHistoryControlJobTitle,
+        classes.employmentHistoryControlGroupChild
       )}
       span
     >
@@ -163,7 +164,7 @@ function EmploymentControlJobTitle ({
   )
 }
 
-function EmploymentControlJobDates ({
+function EmploymentHistoryControlJobDates ({
   employment
 }: {
   employment: EmploymentData
@@ -174,8 +175,8 @@ function EmploymentControlJobDates ({
   return (
     <Text
       className={cx(
-        classes.employmentControlJobDates,
-        classes.employmentControlGroupChild
+        classes.employmentHistoryControlJobDates,
+        classes.employmentHistoryControlGroupChild
       )}
       c='dimmed'
       span

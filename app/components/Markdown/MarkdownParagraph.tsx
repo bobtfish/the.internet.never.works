@@ -1,9 +1,7 @@
 import { Text } from '@mantine/core'
-import cx from 'clsx'
 import { splitParagraphs } from './Parser'
 import { MarkdownString } from './MarkdownString'
 import type { MarkdownParagraphProps } from './types'
-import classes from './MarkdownParagraph.module.css'
 
 export function MarkdownParagraph ({
   className,
@@ -11,6 +9,7 @@ export function MarkdownParagraph ({
   styles,
   anchorProps,
   anchorTarget,
+  classNames,
   ...textProps
 }: MarkdownParagraphProps) {
   const anchorStyles = styles?.anchor
@@ -22,11 +21,14 @@ export function MarkdownParagraph ({
         return (
           <Text
             {...textProps}
-            className={cx(className, classes.paragraph)}
+            className={className}
+            classNames={{root: classNames?.root}}
+            style={{textWrap: 'pretty', margin: 'var(--mantine-spacing-sm)', marginRight: 'var(--mantine-spacing-lg)'}}
             styles={{ root: textStyles }}
             key={idx}
           >
             <MarkdownString
+              classNames={{anchor: classNames?.anchor}}
               styles={{ anchor: anchorStyles }}
               anchorTarget={anchorTarget}
               anchorProps={anchorProps}

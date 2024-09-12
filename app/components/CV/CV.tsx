@@ -1,4 +1,4 @@
-import { Title, Text } from '@mantine/core'
+import { Title, Text, Box, ScrollArea } from '@mantine/core'
 import {
   MarkdownParagraph,
   MarkdownString,
@@ -44,7 +44,10 @@ function Name ({ name }: { name: string }) {
 function Synopsis ({ synopsis }: { synopsis: string }) {
   return (
     <Text ta='center' fw={500} pb='1rem'>
-      <MarkdownString markdown={synopsis} />
+      <MarkdownString
+        classNames={{ anchor: classes.anchor }}
+        markdown={synopsis}
+      />
     </Text>
   )
 }
@@ -54,10 +57,7 @@ function Profile ({ profile }: { profile: string }) {
     <>
       <Title order={2}>Profile</Title>
       <MarkdownParagraph
-        anchorProps={{
-          underline: 'always',
-          c: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
-        }}
+        classNames={{ anchor: classes.anchor }}
         markdown={profile}
       />
     </>
@@ -99,13 +99,15 @@ export function CV ({ cvdata }: CVProps) {
     }
   ]
   return (
-    <>
-      <Name name={cvdata.name} />
-      <Synopsis synopsis={cvdata.synopsis} />
-      <SegmentWithTransitions
-        data={sections}
-        classes={{ control: classes.control }}
-      />
-    </>
+    <Box className={classes.root}>
+      <ScrollArea scrollbars='y'>
+        <Name name={cvdata.name} />
+        <Synopsis synopsis={cvdata.synopsis} />
+        <SegmentWithTransitions
+          data={sections}
+          classes={{ control: classes.control }}
+        />
+      </ScrollArea>
+    </Box>
   )
 }

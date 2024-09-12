@@ -1,5 +1,6 @@
-import { Title } from '@mantine/core'
+import { Title, List, Anchor, Box } from '@mantine/core'
 import { MarkdownString } from '~/components'
+import classes from './CV.module.css'
 import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
 
 export type OpenSourceHistoryProps = {
@@ -13,7 +14,7 @@ function OpenSourceProjectItem({
 }) {
   return (
     <>
-      <a href={project.url}>{project.name}</a> <MarkdownString markdown={project.description} /> ({project.languages})
+      <Anchor className={classes.anchor} href={project.url}>{project.name}</Anchor> <MarkdownString classNames={{anchor: classes.anchor}} markdown={project.description} /> ({project.languages})
     </>
   )
 }
@@ -22,7 +23,7 @@ function OpenSourceProjectsList ({
       openSourceProjectsData
     }: OpenSourceHistoryProps) {
       return openSourceProjectsData.map(openSourceProject => (
-        <li key={openSourceProject.name}><OpenSourceProjectItem project={openSourceProject} /></li>
+        <List.Item key={openSourceProject.name}><OpenSourceProjectItem project={openSourceProject} /></List.Item>
       ))
     }
 
@@ -30,11 +31,11 @@ export function OpenSourceProjects ({
   openSourceProjectsData,
 }: OpenSourceHistoryProps) {
   return (
-    <>
+    <Box>
       <Title order={2}>Open Source Projects</Title>
-      <ul>
+      <List>
         <OpenSourceProjectsList openSourceProjectsData={openSourceProjectsData} />
-      </ul>
-    </>
+      </List>
+    </Box>
   )
 }

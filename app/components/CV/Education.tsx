@@ -1,4 +1,4 @@
-import { Title } from '@mantine/core'
+import { Title, List, Box } from '@mantine/core'
 import type { Education as EducationData } from '~/data/CV'
 
 export type EducationProps = {
@@ -13,19 +13,19 @@ function EducationItem({ education }: { education: EducationData }) {
 
 export function EducationList ({ educationData }: EducationProps) {
     return educationData.map(education => (
-        <li key={education.institution}>
+        <List.Item key={education.institution}>
             <EducationItem education={education} />
-        </li>
+        </List.Item>
     ))
 }
 
 export function Education ({ educationData }: EducationProps) {
   return (
-    <>
+    <Box>
       <Title order={2}>Education</Title>
-      <ul>
+      <List pb='var(--mantine-spacing-lg)'>
         <EducationList educationData={educationData} />
-      </ul>
-    </>
+      </List>
+    </Box>
   )
 }

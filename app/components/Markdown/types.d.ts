@@ -8,7 +8,7 @@ export type MarkdownStringStyles = Partial<Record<MarkdownStringStylesNames, CSS
 
 export type MarkdownAnchorProps = Omit<AnchorProps, 'key' | 'href' | 'styles'>
 
-export type MarkdownStringTextProps = Omit<TextProps, 'span' | 'component' | 'styles'>
+export type MarkdownStringTextProps = Omit<TextProps, 'classNames', 'span' | 'component' | 'styles'>
 
 export type MarkdownParagraphTextProps = Omit<TextProps, 'styles'>
 
@@ -19,6 +19,7 @@ export type MarkdownStringBaseProps = {
     styles?: MarkdownStringStyles
     anchorProps?: MarkdownAnchorProps
     anchorTarget?: MarkdownAnchorTarget
+    classNames?: Partial<Record<MarkdownStringStylesNames, string>>
 }
 
 export type MarkdownStringProps = MarkdownStringBaseProps & MarkdownStringTextProps
