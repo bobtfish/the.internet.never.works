@@ -3,8 +3,14 @@
 exports[`paragraphs - no markdown 1`] = `
 [
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
@@ -15,8 +21,14 @@ exports[`paragraphs - no markdown 1`] = `
     </span>
   </p>,
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
@@ -32,8 +44,14 @@ exports[`paragraphs - no markdown 1`] = `
 exports[`paragraphs - with markdown 1`] = `
 [
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
@@ -53,8 +71,14 @@ exports[`paragraphs - with markdown 1`] = `
     </span>
   </p>,
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
@@ -70,8 +94,14 @@ exports[`paragraphs - with markdown 1`] = `
 exports[`plain text - no markdown 1`] = `
 [
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
@@ -87,8 +117,14 @@ exports[`plain text - no markdown 1`] = `
 exports[`with markdown 1`] = `
 [
   <p
-    className="mantine-focus-auto paragraph m_b6d8b162 mantine-Text-root"
-    style={{}}
+    className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
+    style={
+      {
+        "margin": "var(--mantine-spacing-sm)",
+        "marginRight": "var(--mantine-spacing-lg)",
+        "textWrap": "pretty",
+      }
+    }
   >
     <span
       className="mantine-focus-auto m_b6d8b162 mantine-Text-root"
