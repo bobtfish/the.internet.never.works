@@ -1,4 +1,4 @@
-import { Title, List, Box } from '@mantine/core'
+import { Title, List } from '@mantine/core'
 import type { Education as EducationData } from '~/data/CV'
 
 export type EducationProps = {

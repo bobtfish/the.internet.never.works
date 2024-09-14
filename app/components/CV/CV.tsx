@@ -1,4 +1,4 @@
-import { Title, Text, Box, ScrollArea } from '@mantine/core'
+import { Title, Text, Box } from '@mantine/core'
 import {
   MarkdownParagraph,
   MarkdownString,
