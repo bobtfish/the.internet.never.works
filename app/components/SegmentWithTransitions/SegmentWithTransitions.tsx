@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SegmentedControl, Button, Box } from '@mantine/core'
+import { SegmentedControl, Button, Box, Group } from '@mantine/core'
 import cx from 'clsx'
 import { MyTransition } from './MyTransition'
 import { ArrowLeftIcon, ArrowRightIcon } from '~/components'
@@ -80,8 +80,10 @@ export function SegmentWithTransitions ({
               style={{ backgroundColor: datum.color }}
             >
               {datum.content}
-              {i > 0 ? <Button disabled={amTransitioning} leftSection={<ArrowLeftIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i-1].name)}>{data[i-1].name}</Button> : <></>}
-              {i < numElements - 1 ? <Button disabled={amTransitioning} rightSection={<ArrowRightIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i+1].name)}>{data[i+1].name}</Button> : <></>}
+              <Group justify="center">
+                 {i > 0 ? <Button disabled={amTransitioning} leftSection={<ArrowLeftIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i-1].name)}>{data[i-1].name}</Button> : <></>}
+                 {i < numElements - 1 ? <Button disabled={amTransitioning} rightSection={<ArrowRightIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i+1].name)}>{data[i+1].name}</Button> : <></>}
+              </Group>
             </Box>
           </MyTransition>
         ))}

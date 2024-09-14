@@ -7,3 +7,12 @@
         color: light-dark(var(--mantine-color-dark-5), var(--mantine-color-grey-4));
     }
 }
+
+.transitionWrapperBox {
+    position: absolute;
+    width: calc(100% - 40px); /* FIXME - take the -40px away once all debugged */
+    /* FIXME - take all this margin and padding and color shit away once all debugged */
+    margin: 20px;
+    background-color: blue;
+    padding: 20px;
+}

@@ -5,6 +5,7 @@ import {
   Transition,
   MantineTransition,
 } from '@mantine/core'
+import classes from './SegmentWithTransitions.module.css'
 
 type MyTransitionProps = {
     selected: boolean
@@ -17,18 +18,20 @@ type MyTransitionProps = {
 
 const TransitionWrapperBox = ({
     children,
-    styles,
+    style,
     setHasRendered,
   }: {
-    styles: React.CSSProperties
+    style: React.CSSProperties
     children: JSX.Element
     setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
   }) => {
     useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree
-    const positionStyles: { [key: string]: string } = { position: 'absolute' }
     //               FIXME - FIXED HEIGHT HERE.
-
-    return <Box style={{...styles, ...positionStyles}}><ScrollArea type="always" scrollbars='y' style={{backgroundColor: 'pink', height: '600px'}}>{children}</ScrollArea></Box>
+    return <Box className={classes.transitionWrapperBox} style={style}>
+      <ScrollArea type="always" scrollbars='y' style={{backgroundColor: 'pink', height: '600px'}}>
+        {children}
+      </ScrollArea>
+    </Box>
   }
 
 export function MyTransition ({
@@ -55,8 +58,8 @@ export function MyTransition ({
             return (
           <TransitionWrapperBox
             setHasRendered={setHasRendered}
-            styles={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
-                                                                            // so that we don't see a bunch of exit animations on first paint
+            style={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
+                                                                                      // so that we don't see a bunch of exit animations on first paint
           >
             {children}
           </TransitionWrapperBox>
