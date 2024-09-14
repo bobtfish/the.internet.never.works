@@ -1,0 +1,26 @@
+diff --git a/node_modules/@mantine/core/cjs/components/Transition/Transition.cjs b/node_modules/@mantine/core/cjs/components/Transition/Transition.cjs
+index f2b4bfb..08620b5 100644
+--- a/node_modules/@mantine/core/cjs/components/Transition/Transition.cjs
++++ b/node_modules/@mantine/core/cjs/components/Transition/Transition.cjs
+@@ -35,7 +35,7 @@ function Transition({
+   if (transitionDuration === 0) {
+     return mounted ? /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children: children({}) }) : keepMounted ? children({ display: "none" }) : null;
+   }
+-  return transitionStatus === "exited" ? keepMounted ? children({ display: "none" }) : null : /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children: children(
++  return transitionStatus === "exited" ? keepMounted ? jsxRuntime.jsx(jsxRuntime.Fragment, { children: children({ display: "none" }) }) : null : /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children: children(
+     getTransitionStyles.getTransitionStyles({
+       transition,
+       duration: transitionDuration,
+diff --git a/node_modules/@mantine/core/esm/components/Transition/Transition.mjs b/node_modules/@mantine/core/esm/components/Transition/Transition.mjs
+index 56e14de..1a6be49 100644
+--- a/node_modules/@mantine/core/esm/components/Transition/Transition.mjs
++++ b/node_modules/@mantine/core/esm/components/Transition/Transition.mjs
+@@ -33,7 +33,7 @@ function Transition({
+   if (transitionDuration === 0) {
+     return mounted ? /* @__PURE__ */ jsx(Fragment, { children: children({}) }) : keepMounted ? children({ display: "none" }) : null;
+   }
+-  return transitionStatus === "exited" ? keepMounted ? children({ display: "none" }) : null : /* @__PURE__ */ jsx(Fragment, { children: children(
++  return transitionStatus === "exited" ? keepMounted ? jsx(Fragment, { children: children({ display: "none" })}) : null : /* @__PURE__ */ jsx(Fragment, { children: children(
+     getTransitionStyles({
+       transition,
+       duration: transitionDuration,

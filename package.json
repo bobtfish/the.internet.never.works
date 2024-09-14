@@ -10,7 +10,8 @@
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
     "deploy": "npm install && npm run typecheck && npm run lint && npm run test && npm run build && cd cdk && npm install && npm run synth && npm run deploy",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@mantine/core": "^7.12.2",
@@ -53,6 +54,7 @@
     "jest-css-modules": "^2.1.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-transform-yaml": "^1.1.2",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.45",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
