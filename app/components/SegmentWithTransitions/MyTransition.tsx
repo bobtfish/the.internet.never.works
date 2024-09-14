@@ -25,6 +25,15 @@ export function MyTransition ({
   }: MyTransitionProps) {
     const [hasRendered, setHasRendered] = useState(false)
     const [hasExited, setHasExited] = useState(selected)
+    useEffect(() => {
+        // Perform some setup actions
+        console.log('MyTransition mounted for ', name);
+        return () => {
+          // This is the cleanup function
+          // It will be called when the component is unmounted
+          console.log('MyTransition unmounted for ', name);
+        };
+      }, []);
     const TransitionWrapperBox = ({
       children,
       styles,
@@ -38,11 +47,11 @@ export function MyTransition ({
     }) => {
         useEffect(() => {
             // Perform some setup actions
-            console.log('MyTransition mounted for ', name);
+            console.log('TransitionWrapperBox mounted for ', name);
             return () => {
               // This is the cleanup function
               // It will be called when the component is unmounted
-              console.log('MyTransition unmounted for ', name);
+              console.log('TransitionWrapperBox unmounted for ', name);
             };
           }, []); 
       useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree

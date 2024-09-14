@@ -103,6 +103,7 @@ export function EmploymentHistory ({
         variant='subtle'
         multiple
         classNames={{item: classes.employmentHistoryItem, root: classes.employmentHistoryAccordian}}
+        onChange={(value) => {console.log("Accordian value has changed, is ", value)}}
       >
         {employmentHistoryList}
       </Accordion>
