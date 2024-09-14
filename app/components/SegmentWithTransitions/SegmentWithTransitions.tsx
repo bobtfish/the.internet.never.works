@@ -64,9 +64,6 @@ export function SegmentWithTransitions ({
   const numElements = data.length
   const buttonClass = cx(baseClasses.button, classes.button)
   return (  <>
-      <Box
-        style={{ minWidth: '100%', backgroundColor: 'purple', height: '500px' }}
-      >
         {data.map((datum, i) => (
           <MyTransition
             key={i}
@@ -87,7 +84,6 @@ export function SegmentWithTransitions ({
             </Box>
           </MyTransition>
         ))}
-      </Box>
       <SegmentedControl
         className={classes.control}
         value={value}
