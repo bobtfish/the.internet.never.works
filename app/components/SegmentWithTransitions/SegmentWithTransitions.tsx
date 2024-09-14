@@ -63,27 +63,50 @@ export function SegmentWithTransitions ({
   transition ||= 'fade'
   const numElements = data.length
   const buttonClass = cx(baseClasses.button, classes.button)
-  return (  <>
-        {data.map((datum, i) => (
-          <MyTransition
-            key={i}
-            name={datum.name}
-            selected={value === datum.name}
-            duration={duration}
-            transition={transition}
-            onExited={() => setTransitioning(false)}
-          >
-            <Box
-              style={{ backgroundColor: datum.color }}
-            >
-              {datum.content}
-              <Group justify="center">
-                 {i > 0 ? <Button disabled={amTransitioning} leftSection={<ArrowLeftIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i-1].name)}>{data[i-1].name}</Button> : <></>}
-                 {i < numElements - 1 ? <Button disabled={amTransitioning} rightSection={<ArrowRightIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i+1].name)}>{data[i+1].name}</Button> : <></>}
-              </Group>
-            </Box>
-          </MyTransition>
-        ))}
+  return (
+    <>
+      {data.map((datum, i) => (
+        <MyTransition
+          key={i}
+          name={datum.name}
+          selected={value === datum.name}
+          duration={duration}
+          transition={transition}
+          onExited={() => setTransitioning(false)}
+        >
+          <Box style={{ backgroundColor: datum.color }}>
+            {datum.content}
+            <Group justify='center'>
+              {i > 0 ? (
+                <Button
+                  disabled={amTransitioning}
+                  leftSection={<ArrowLeftIcon />}
+                  size='lg'
+                  className={buttonClass}
+                  onClick={() => transitionTo(data[i - 1].name)}
+                >
+                  {data[i - 1].name}
+                </Button>
+              ) : (
+                <></>
+              )}
+              {i < numElements - 1 ? (
+                <Button
+                  disabled={amTransitioning}
+                  rightSection={<ArrowRightIcon />}
+                  size='lg'
+                  className={buttonClass}
+                  onClick={() => transitionTo(data[i + 1].name)}
+                >
+                  {data[i + 1].name}
+                </Button>
+              ) : (
+                <></>
+              )}
+            </Group>
+          </Box>
+        </MyTransition>
+      ))}
       <SegmentedControl
         className={classes.control}
         value={value}
