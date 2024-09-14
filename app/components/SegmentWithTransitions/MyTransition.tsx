@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Box,
+  ScrollArea,
   Transition,
   MantineTransition,
 } from '@mantine/core'
@@ -11,6 +12,7 @@ type MyTransitionProps = {
     transition?: MantineTransition
     duration?: number
     onExited?: () => void
+    name: string
   }
 
 export function MyTransition ({
@@ -19,6 +21,7 @@ export function MyTransition ({
     children,
     transition,
     onExited,
+    name,
   }: MyTransitionProps) {
     const [hasRendered, setHasRendered] = useState(false)
     const [hasExited, setHasExited] = useState(selected)
@@ -33,21 +36,36 @@ export function MyTransition ({
       setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
       selected: boolean
     }) => {
+        useEffect(() => {
+            // Perform some setup actions
+            console.log('MyTransition mounted for ', name);
+            return () => {
+              // This is the cleanup function
+              // It will be called when the component is unmounted
+              console.log('MyTransition unmounted for ', name);
+            };
+          }, []); 
       useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree
-      const positionStyles: { [key: string]: string } = selected ? {} : { position: 'absolute' }
-      return <Box style={{...styles, ...positionStyles}}>{children}</Box>
+      const positionStyles: { [key: string]: string } = { position: 'absolute' }
+      //               FIXME - FIXED HEIGHT HERE.
+
+      return <Box style={{...styles, ...positionStyles}}><ScrollArea type="always" scrollbars='y' style={{backgroundColor: 'pink', height: '600px'}}>{children}</ScrollArea></Box>
     }
-  
+    const mounted = hasRendered ? selected : true
     return (
       <Transition
-        mounted={hasRendered ? selected : true} // Force 'mounting' even unselected components initially, to get duration state setup correctly etc
+        mounted={mounted} // Force 'mounting' even unselected components initially, to get duration state setup correctly etc
         transition={transition}
         keepMounted={true} // Keep everything mounted at all times for print layout
         duration={duration}
-        onExit={()=> setHasExited(true)} // No need to set onEnter or onEntered as we will always have exit transitions
-        onExited={()=> {setHasExited(true); if (onExited) onExited()}} // Once the non-active parts have transitioned, return to normal functionality
+        onEnter={() => {console.log("BEGIN Enter transition for ", name, ' going to mounted state ', mounted)}}
+        onEntered={() => {console.log("END Enter transition for ", name, ' going to mounted state ', mounted)}}
+        onExit={()=> {setHasExited(true); console.log("BEGIN Exit transition for ", name, ' going to mounted state ', mounted)}} // No need to set onEnter or onEntered as we will always have exit transitions
+        onExited={()=> {setHasExited(true); console.log("END Exit transition for ", name, ' going to mounted state ', mounted); if (onExited) onExited()}} // Once the non-active parts have transitioned, return to normal functionality
       >
-        {styles => (
+        {styles => {
+            console.log(`Transition for ${name} rendering. Selected ${selected} hasExited ${hasExited} display:none ${!selected && !hasExited}`)
+            return (
           <TransitionWrapperBox
             selected={selected}
             setHasRendered={setHasRendered}
@@ -56,7 +74,7 @@ export function MyTransition ({
           >
             {children}
           </TransitionWrapperBox>
-        )}
+        )}}
       </Transition>
     )
   }

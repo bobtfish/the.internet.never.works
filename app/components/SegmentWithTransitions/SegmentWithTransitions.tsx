@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { SegmentedControl, Group, Button, Box} from '@mantine/core'
-import cx from 'clsx';
+import { useState, useEffect } from 'react'
+import { SegmentedControl, Group, Button, Box } from '@mantine/core'
+import cx from 'clsx'
 import { MyTransition } from './MyTransition'
 import { ArrowLeftIcon, ArrowRightIcon } from '~/components'
 import baseClasses from './SegmentWithTransitions.module.css'
@@ -33,6 +33,7 @@ export type SegmentWithTransitionsPropsData = {
   name: string
   content: JSX.Element
   selected?: boolean
+  color: string
 }
 export type SegmentWithTransitionsProps = {
   data: SegmentWithTransitionsPropsData[]
@@ -53,36 +54,54 @@ export function SegmentWithTransitions ({
   const selected = data.find(datum => datum.selected)
   const [value, setValue] = useState(selected?.name || data[0].name)
   const [amTransitioning, setTransitioning] = useState(false)
-  const transitionTo = (newVal: string) => { setTransitioning(true); setValue(newVal) }
+  const transitionTo = (newVal: string) => {
+    setTransitioning(true)
+    setValue(newVal)
+  }
+  useEffect(() => {
+    // Perform some setup actions
+    console.log('SegmentWithTransitions mounted');
+    return () => {
+      // This is the cleanup function
+      // It will be called when the component is unmounted
+      console.log('SegmentWithTransitions unmounted');
+    };
+  }, []); 
   classes ||= { control: undefined }
-  duration ||= 2500
+  duration ||= 10000
   transition ||= 'fade'
   const numElements = data.length
   const buttonClass = cx(baseClasses.button, classes.button)
-  return (
-    <>
-      {data.map((datum, i) => (
-        <MyTransition
-          key={i}
-          selected={value === datum.name}
-          duration={duration}
-          transition={transition}
-          onExited={() => setTransitioning(false)}
-        >
-          <Box mr={'1.5rem'}>
-            {datum.content}
-
-            <Group justify='center' gap='lg'>
-              {i > 0 ? <Button disabled={amTransitioning} leftSection={<ArrowLeftIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i-1].name)}>{data[i-1].name}</Button> : <></>}
+  /* {i > 0 ? <Button disabled={amTransitioning} leftSection={<ArrowLeftIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i-1].name)}>{data[i-1].name}</Button> : <></>}
               {i < numElements - 1 ? <Button disabled={amTransitioning} rightSection={<ArrowRightIcon />} size='lg' className={buttonClass} onClick={() => transitionTo(data[i+1].name)}>{data[i+1].name}</Button> : <></>}
-            </Group>
-          </Box>
-        </MyTransition>
-      ))}
+              */
+  console.log("Rendering SegmentWithTransitions, data length is: ", data.length)
+              return (
+    <>
+      <Box
+        style={{ minWidth: '100%', backgroundColor: 'purple', height: '500px' }}
+      >
+        {data.map((datum, i) => (
+          <MyTransition
+            key={i}
+            name={datum.name}
+            selected={value === datum.name}
+            duration={duration}
+            transition={transition}
+            onExited={() => setTransitioning(false)}
+          >
+            <Box
+              style={{ backgroundColor: datum.color }}
+            >
+              {datum.content}
+            </Box>
+          </MyTransition>
+        ))}
+      </Box>
       <SegmentedControl
         className={classes.control}
         value={value}
-        onChange={newVal => transitionTo(newVal)}
+        onChange={newVal => { console.log("SegmentedControl calling transitionTo: " + newVal); transitionTo(newVal)}}
         data={data.map(datum => datum.name)}
         transitionDuration={duration}
         fullWidth

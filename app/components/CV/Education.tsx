@@ -21,11 +21,11 @@ export function EducationList ({ educationData }: EducationProps) {
 
 export function Education ({ educationData }: EducationProps) {
   return (
-    <Box>
+    <>
       <Title order={2}>Education</Title>
       <List pb='var(--mantine-spacing-lg)'>
         <EducationList educationData={educationData} />
       </List>
-    </Box>
+    </>
   )
 }
