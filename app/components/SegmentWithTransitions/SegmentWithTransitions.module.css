@@ -16,3 +16,10 @@
     background-color: blue;
     padding: 20px;
 }
+
+.transitionWrapperScrollArea {
+    /* FIXME - we need to dynamically calculate this size in some way, because this controls how long the scroll bars end up being when the content overflows */
+    height: 550px;
+    /* FIXME - remove this once we have got a sensible value above. */
+    background-color: pink;
+}

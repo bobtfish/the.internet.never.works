@@ -28,7 +28,7 @@ const TransitionWrapperBox = ({
     useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree
     //               FIXME - FIXED HEIGHT HERE.
     return <Box className={classes.transitionWrapperBox} style={style}>
-      <ScrollArea type="always" scrollbars='y' style={{backgroundColor: 'pink', height: '600px'}}>
+      <ScrollArea type="always" scrollbars='y' className={classes.transitionWrapperScrollArea}>
         {children}
       </ScrollArea>
     </Box>
