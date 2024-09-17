@@ -41,6 +41,7 @@ export function SegmentWithTransitions ({
         data={data.map(datum => datum.name)}
         transitionDuration={duration}
         fullWidth
+        visibleFrom='sm'
       />
     </Box>
   )

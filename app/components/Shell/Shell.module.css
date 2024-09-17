@@ -2,6 +2,10 @@
   --app-shell-main-margin: var(--mantine-spacing-sm);
   --app-shell-header-offset: calc(var(--app-shell-header-height) + var(--app-shell-main-margin));
   --app-shell-navbar-offset: calc(var(--app-shell-navbar-width) + var(--app-shell-main-margin));
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    --app-shell-navbar-offset: var(--app-shell-main-margin)
+  }
 }
 .header {
   display: flex;

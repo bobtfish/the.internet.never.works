@@ -2,6 +2,7 @@ import {
   AppShell,
   RemoveScroll,
 } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks';
 import cx from 'clsx';
 import { LoadingDelay } from '~/components'
 import { Header } from './Header'
@@ -14,7 +15,7 @@ interface ShellProps {
 }
 
 export function Shell ({ children }: ShellProps) {
-  const opened = true
+  const [opened, { toggle }] = useDisclosure();
   return (
     <>
     <AppShell
@@ -39,7 +40,7 @@ export function Shell ({ children }: ShellProps) {
       }}
     >
       <AppShell.Header>
-         <Header />
+         <Header navOpen={opened} toggleNav={toggle} />
       </AppShell.Header>
       <AppShell.Navbar>
         <Navbar />

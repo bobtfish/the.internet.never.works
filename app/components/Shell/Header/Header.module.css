@@ -1,7 +1,5 @@
 .control {
   display: flex;
-  align-items: center;
-  justify-content: center;
 
   @mixin light {
     border-color: var(--mantine-color-gray-3);
@@ -24,9 +22,14 @@
   }
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--app-shell-navbar-width);
+.hideSmall {
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: none
+  }
+}
+
+.hideXSmall {
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: none
+  }
 }

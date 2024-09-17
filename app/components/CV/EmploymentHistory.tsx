@@ -47,7 +47,7 @@ function EmploymentAccomplishments ({
 
 function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
   const numPositions = employment.positions.length
-  if (numPositions == 1) return
+  if (numPositions == 1) return <EmploymentHistoryShortJobDates employment={employment} classNames={[classes.employmentHistoryItemShortJobDates]}/>
   return (
     <>
       <Title order={4} pb='sm'>
@@ -77,6 +77,7 @@ function EmploymentFullDates ({ employment }: { employment: EmploymentData }) {
 function EmploymentItem ({ employment }: { employment: EmploymentData }) {
   return (
     <>
+      {employment.positions.length <= 1 ? <EmploymentHistoryJobTitle employment={employment} classNames={[classes.employmentHistoryItemJobTitle]}/> : <></>}
       <EmploymentFullDates employment={employment} />
       <EmploymentAccomplishments employment={employment} />
     </>
@@ -115,8 +116,8 @@ function EmploymentHistoryControl ({ employment }: { employment: EmploymentData 
   return (
     <Group justify='space-between' wrap='nowrap'>
       <EmploymentHistoryControlCompanyName employment={employment} />
-      <EmploymentHistoryControlJobTitle employment={employment} />
-      <EmploymentHistoryControlJobDates employment={employment} />
+      <EmploymentHistoryJobTitle employment={employment} classNames={[classes.employmentHistoryControlJobTitle, classes.employmentHistoryControlGroupChild]}/>
+      <EmploymentHistoryShortJobDates employment={employment} classNames={[classes.employmentHistoryControlJobDates, classes.employmentHistoryControlGroupChild]} />
     </Group>
   )
 }
@@ -149,16 +150,18 @@ function EmploymentHistoryControlCompanyName ({
   )
 }
 
-function EmploymentHistoryControlJobTitle ({
-  employment
+function EmploymentHistoryJobTitle ({
+  employment,
+  classNames,
 }: {
-  employment: EmploymentData
+  employment: EmploymentData,
+  classNames?: string[]
 }) {
   return (
     <Text
       className={cx(
-        classes.employmentHistoryControlJobTitle,
-        classes.employmentHistoryControlGroupChild
+        classes.employmentHistoryJobTitle,
+        ...(classNames || [])
       )}
       span
     >
@@ -167,10 +170,12 @@ function EmploymentHistoryControlJobTitle ({
   )
 }
 
-function EmploymentHistoryControlJobDates ({
-  employment
+function EmploymentHistoryShortJobDates ({
+  employment,
+  classNames,
 }: {
-  employment: EmploymentData
+  employment: EmploymentData,
+  classNames?: string[],
 }) {
   const numPositions = employment.positions.length
   const endDate = employment.positions[0].endDate
@@ -178,8 +183,8 @@ function EmploymentHistoryControlJobDates ({
   return (
     <Text
       className={cx(
-        classes.employmentHistoryControlJobDates,
-        classes.employmentHistoryControlGroupChild
+        classes.employmentHistoryShortJobDates,
+        ...(classNames || [])
       )}
       c='dimmed'
       span

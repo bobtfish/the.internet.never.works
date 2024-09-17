@@ -6,7 +6,7 @@ import logo from '../logo.png'
 
 export function Logo () {
   return (
-    <Box component='span' className={classes.logo}>
+    <Box component='span' className={classes.hideSmall} pl="sm">
       <Link to='/' className='mantine-focus-never'>
         <img src={logo} alt='Homepage' style={{ height: '50px' }} />
       </Link>
