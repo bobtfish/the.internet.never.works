@@ -18,7 +18,7 @@ export function SegmentWithTransitions ({
   transition ||= 'fade'
   const buttonClass = cx(baseClasses.button, classes.button)
   return (
-    <>
+    <Box>
       {data.map((datum, i) => (
         <MyTransition
           key={i}
@@ -42,6 +42,6 @@ export function SegmentWithTransitions ({
         transitionDuration={duration}
         fullWidth
       />
-    </>
+    </Box>
   )
 }

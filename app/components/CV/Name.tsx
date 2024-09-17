@@ -2,7 +2,7 @@ import { Title, Text } from "@mantine/core";
 
 export function Name ({ name }: { name: string }) {
     return (
-      <Title ta='center' pb='var(--mantine-spacing-xs)'>
+      <Title ta='center' style={{marginBlockEnd: 0}} pb='var(--mantine-spacing-xs)'>
         <Text
           inherit
           variant='gradient'
