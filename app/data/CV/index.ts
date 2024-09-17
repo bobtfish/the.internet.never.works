@@ -14,7 +14,7 @@ export {
     type Employment,
     programmingLanguageSchema,
     type ProgrammingLanguage
-} from './Schema'
+} from './schema'
 export {
     loadData as loadCVData
-} from './Data'
+} from './utils'

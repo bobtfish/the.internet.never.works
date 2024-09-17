@@ -5,7 +5,7 @@ import {
   openSourceProjectSchema,
   positionSchema,
   employementSchema
-} from '../Schema'
+} from '../schema'
 
 const anAccomplishment = Object.freeze({
   description: 'I learned to tie my shoelaces properly at the age of 44'

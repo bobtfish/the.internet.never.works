@@ -56,7 +56,3 @@ export const CVSchema = z.object({
 })
 
 export type CV = z.infer<typeof CVSchema>
-
-export function parseCV(data: CV) {
-    return CVSchema.parse(data)
-}

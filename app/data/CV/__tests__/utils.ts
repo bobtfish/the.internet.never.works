@@ -1,5 +1,5 @@
-import { loadData } from '../Data'
-import { CVSchema } from '../Schema'
+import { loadData } from '../utils'
+import { CVSchema } from '../schema'
 
 const data = loadData()
 
