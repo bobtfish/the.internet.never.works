@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react'
 import { Box } from '@mantine/core'
-import classes from './Logo.module.css'
+import classes from './Header.module.css'
 
 import logo from '../logo.png'
 

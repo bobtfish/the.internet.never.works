@@ -1,6 +1,0 @@
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--app-shell-navbar-width);
-}
