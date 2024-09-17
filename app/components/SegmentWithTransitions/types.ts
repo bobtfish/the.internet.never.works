@@ -28,7 +28,6 @@ export type TransitionToFunction = (to: string) => void
     name: string
     content: JSX.Element
     selected?: boolean
-    color: string
   }
   export type SegmentWithTransitionsProps = {
     data: ATransitionProps[]

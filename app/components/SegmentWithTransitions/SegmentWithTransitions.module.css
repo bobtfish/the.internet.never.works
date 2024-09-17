@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     --swt-content-area-bottom-margin: calc(var(--cv-control-margin-bottom) + var(--cv-control-height));
-    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + var(--app-shell-main-margin) + var(--cv-name-height)  + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px + 20px);
+    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + var(--app-shell-main-margin) + var(--cv-name-height)  + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)));
 }
 
 .button {
@@ -17,18 +17,9 @@
 
 .transitionWrapperBox {
     position: absolute;
-    width: calc(100% - 40px); /* FIXME - take the -40px away once all debugged */
-    /* FIXME - take all this margin and padding and color shit away once all debugged */
-    margin: 20px;
-    background-color: blue;
-    padding: 20px;
+    width: 100%
 }
 
 .transitionWrapperScrollArea {
-    /* FIXME - we need to dynamically calculate this size in some way, because this controls how long the scroll bars end up being when the content overflows */
-    /*height: calc(100vh - var(--cv-control-margin-bottom) - var(--app-shell-header-offset) - calc(calc(var(--mantine-h1-font-size) * var(--mantine-h1-line-height)) + var(--mantine-spacing-xs) + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px) - 70px);
-    */
     height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
-    /* FIXME - remove this once we have got a sensible value above. */
-    background-color: pink;
 }

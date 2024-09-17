@@ -14,7 +14,7 @@ export function SegmentWithTransitions ({
 }: SegmentWithTransitionsProps) {
   const { selected, transitionTo, amTransitioning, stopTransition } = useMyTransition((data.find(datum => datum.selected) || data[0]).name)
   classes ||= { control: undefined }
-  duration ||= 10000
+  duration ||= 250
   transition ||= 'fade'
   const buttonClass = cx(baseClasses.button, classes.button)
   return (
@@ -28,7 +28,7 @@ export function SegmentWithTransitions ({
           transition={transition}
           onExited={stopTransition}
         >
-          <Box style={{ backgroundColor: datum.color }}>
+          <Box>
             {datum.content}
             <NavButtons amTransitioning={amTransitioning} className={buttonClass} transitionTo={transitionTo} index={i} data={data} />
           </Box>

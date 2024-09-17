@@ -18,18 +18,15 @@ export function CV ({ cvdata }: CVProps) {
     {
       name: 'Profile',
       content: <Profile profile={cvdata.profile} />,
-      color: 'red'
+      selected: true,
     },
     {
       name: 'Employment History',
       content: <EmploymentHistory employmentHistoryData={cvdata.employmentHistory} />,
-      color: 'blue'
     },
     {
       name: 'Education',
       content: <Education educationData={cvdata.education} />,
-      color: 'green',
-      selected: true,
     },
     {
       name: 'Programming Languages',
@@ -38,7 +35,6 @@ export function CV ({ cvdata }: CVProps) {
           programmingLanguagesData={cvdata.programmingLanguages}
         />
       ),
-      color: 'orange'
     },
     {
       name: 'Open Source Projects',
@@ -47,7 +43,6 @@ export function CV ({ cvdata }: CVProps) {
           openSourceProjectsData={cvdata.openSourceProjects}
         />
       ),
-      color: 'purple'
     }
   ]
   return (

@@ -26,7 +26,6 @@ const TransitionWrapperBox = ({
     setHasRendered: React.Dispatch<React.SetStateAction<boolean>>
   }) => {
     useEffect(() => setHasRendered(true)) // We have rendered once, we're good to set mounted = false in the <Transition> element 1 step up the tree
-    //               FIXME - FIXED HEIGHT HERE.
     return <Box className={classes.transitionWrapperBox} style={style}>
       <ScrollArea type="always" scrollbars='y' className={classes.transitionWrapperScrollArea}>
         {children}
@@ -57,8 +56,8 @@ export function MyTransition ({
           return (
             <TransitionWrapperBox
               setHasRendered={setHasRendered}
-              style={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
-                                                                                        // so that we don't see a bunch of exit animations on first paint
+              style={!selected && !hasExited ? { display: 'none' } : styles}  // We override the style for non-selected components to force no display
+                                                                              // so that we don't see a bunch of exit animations on first paint
             >
               {children}
             </TransitionWrapperBox>
