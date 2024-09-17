@@ -1,25 +1,10 @@
-import { ReactNode, useEffect, useState } from 'react'
-import { useNavigation } from '@remix-run/react'
 import { Box, LoadingOverlay, useComputedColorScheme } from '@mantine/core'
 
-export type LoadingDelayProps = {
-  delay?: number
-  children: ReactNode
-}
+import { useIsLoading } from './hooks'
+import type { LoadingDelayProps } from './types'
 
 export function LoadingDelay ({ delay = 150, children }: LoadingDelayProps) {
-  const navigation = useNavigation()
-  const [isLoading, setIsLoading] = useState(false)
-  useEffect(() => {
-    if (navigation.state === 'loading') {
-      const timeout = setTimeout(() => {
-        setIsLoading(true)
-      }, delay)
-      return () => clearTimeout(timeout)
-    } else {
-      setIsLoading(false)
-    }
-  }, [navigation.state, delay])
+  const isLoading = useIsLoading(delay)
   // Note that use of useComputedColorScheme is ONLY for the loading overlay styling,
   // it cannot be used anywhere else as otherwise it will break hydration.
   // The only reason that it's okay in the loading overlay is that this is never displayed
