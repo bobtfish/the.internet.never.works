@@ -1,7 +1,7 @@
 import { BaseIcon } from './BaseIcon'
 import { IconProps } from './types'
 
-export function LinkedInIcon ({ size = 24, ...others }: IconProps) {
+export function LinkedInIcon ({ size = 48, ...others }: IconProps) {
   return (
     <BaseIcon viewBox='0 0 48 48' fill='currentColor' size={size} {...others}>
       <path

@@ -1,7 +1,6 @@
 import { SunIcon, MoonIcon } from '~/components'
 import { useMantineColorScheme } from '@mantine/core'
 import { HeaderControl } from './HeaderControl'
-import classes from './Header.module.css'
 
 export function ColorSchemeControl () {
   const { setColorScheme } = useMantineColorScheme()
@@ -14,7 +13,7 @@ export function ColorSchemeControl () {
         tooltip={'Dark mode'}
         aria-label='Toggle color scheme'
       >
-        <MoonIcon className={classes.icon} />
+        <MoonIcon size="44px" />
       </HeaderControl>
       <HeaderControl
         lightHidden
@@ -22,7 +21,7 @@ export function ColorSchemeControl () {
         tooltip={'Light mode'}
         aria-label='Toggle color scheme'
       >
-        <SunIcon className={classes.icon} />
+        <SunIcon size="44px"/>
       </HeaderControl>
     </>
   )
