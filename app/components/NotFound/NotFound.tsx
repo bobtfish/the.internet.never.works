@@ -1,4 +1,6 @@
 import { useHydrated } from 'remix-utils/use-hydrated'
+import { Link } from "@remix-run/react"
+
 import { Container, Title, Text, Button, Group } from '@mantine/core'
 import cx from 'clsx'
 import { Illustration } from './Illustration'
@@ -35,7 +37,7 @@ export function NotFound () {
               the address, or the page has been moved to another URL.
             </Text>
             <Group justify='center'>
-              <Button size='md'>Take me back to home page</Button>
+              <Link to="/"><Button size='md'>Take me back to home page</Button></Link>
             </Group>
           </div>
         </div>

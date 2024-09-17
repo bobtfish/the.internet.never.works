@@ -1,5 +1,11 @@
 import { CSSProperties, AnchorProps, TextProps } from '@mantine/core';
 
+export type MarkdownLink = {
+    match: string
+    text: string
+    url: string
+  }
+
 export type MarkdownText = string | React.ReactNode[]
 
 export type MarkdownStringStylesNames = 'root' | 'anchor'
@@ -8,7 +14,7 @@ export type MarkdownStringStyles = Partial<Record<MarkdownStringStylesNames, CSS
 
 export type MarkdownAnchorProps = Omit<AnchorProps, 'key' | 'href' | 'styles'>
 
-export type MarkdownStringTextProps = Omit<TextProps, 'classNames', 'span' | 'component' | 'styles'>
+export type MarkdownStringTextProps = Omit<TextProps, 'classNames' | 'span' | 'component' | 'styles'>
 
 export type MarkdownParagraphTextProps = Omit<TextProps, 'styles'>
 

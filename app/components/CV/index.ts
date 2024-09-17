@@ -1,2 +1,2 @@
 export * from './CV'
-export * from './types'
+export * from './types.d'
