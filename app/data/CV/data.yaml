@@ -141,7 +141,7 @@ programmingLanguages:
 openSourceProjects:
   - name: Catalyst Framework
     url: http://catalyst.perl.org/
-    description: Ex Core team member. Framework has powered significant applications like the [BBC iPlayer v3](https://www.bbc.co.uk/blogs/bbcinternet/2008/12/iplayer_day_performance_tricks.html
+    description: Ex Core team member. Framework has powered significant applications like the [BBC iPlayer v3](https://www.bbc.co.uk/blogs/bbcinternet/2008/12/iplayer_day_performance_tricks.html)
     languages: perl
   - name: liminal-umbrella
     url: https://github.com/bobtfish/liminal-umbrella
