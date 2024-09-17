@@ -1,6 +1,6 @@
 import { Title, List, Box } from '@mantine/core'
-import type { ProgrammingLanguage as ProgrammingLanguageData } from '~/data/CV'
 
+import type { ProgrammingLanguage as ProgrammingLanguageData } from '~/data/CV'
 export type ProgrammingLanguagesProps = {
   programmingLanguagesData: ProgrammingLanguageData[]
 }

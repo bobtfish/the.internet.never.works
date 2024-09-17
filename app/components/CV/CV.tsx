@@ -1,68 +1,17 @@
-import { Title, Text, Box } from '@mantine/core'
+import { Box } from '@mantine/core'
 import {
-  MarkdownParagraph,
-  MarkdownString,
   SegmentWithTransitions,
   type SegmentWithTransitionsPropsData
 } from '~/components'
-import type { CV as CVData } from '~/data/CV'
+import type { CVProps } from './types'
+import { Name } from './Name'
+import { Synopsis } from './Synopsis'
+import { Profile } from './Profile'
 import { EmploymentHistory } from './EmploymentHistory'
 import { Education } from './Education'
 import { ProgrammingLanguages } from './ProgrammingLanguages'
 import { OpenSourceProjects } from './OpenSourceProjects'
 import classes from './CV.module.css'
-
-export type CVProps = {
-  cvdata: CVData
-}
-
-function Name ({ name }: { name: string }) {
-  return (
-    <Title ta='center' pb='var(--mantine-spacing-xs)'>
-      <Text
-        inherit
-        variant='gradient'
-        component='span'
-        gradient={{ from: 'white', to: 'red' }}
-        lightHidden
-      >
-        {name}
-      </Text>
-      <Text
-        inherit
-        variant='gradient'
-        component='span'
-        gradient={{ from: 'black', to: 'red' }}
-        darkHidden
-      >
-        {name}
-      </Text>
-    </Title>
-  )
-}
-
-function Synopsis ({ synopsis }: { synopsis: string }) {
-  return (
-    <Text ta='center' fw={500} pb='1rem'>
-      <MarkdownString
-        classNames={{ anchor: classes.anchor }}
-        markdown={synopsis}
-      />
-    </Text>
-  )
-}
-
-function Profile ({ profile }: { profile: string }) {
-  return (
-    <>
-      <Title order={2}>Profile</Title>
-      <MarkdownParagraph
-        classNames={{ anchor: classes.anchor }}
-        markdown={profile}
-      />
-    </>
-  )
-}
 
 export function CV ({ cvdata }: CVProps) {
   const sections: SegmentWithTransitionsPropsData[] = [

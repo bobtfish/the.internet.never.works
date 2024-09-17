@@ -1,8 +1,8 @@
 import { Title, List, Anchor, Box } from '@mantine/core'
 import { MarkdownString } from '~/components'
 import classes from './CV.module.css'
-import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
 
+import type { OpenSourceProject as OpenSourceProjectData } from '~/data/CV'
 export type OpenSourceHistoryProps = {
   openSourceProjectsData: OpenSourceProjectData[]
 }
