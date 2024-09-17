@@ -13,6 +13,7 @@ import cx from 'clsx'
 import { MarkdownString } from '~/components'
 import classes from './CV.module.css'
 import type { Employment as EmploymentData } from '~/data/CV'
+import { ExternalLinkIcon } from '~/components/Icons'
 
 export type EmploymentHistoryProps = {
   employmentHistoryData: EmploymentData[]
@@ -134,13 +135,15 @@ function EmploymentHistoryControlCompanyName ({
       )}
     >
       <Title order={3}>
+        {employment.companyName}&nbsp;
         <Anchor
           className={classes.employmentHistoryControlCompanyNameAnchor}
           inherit
-          underline='hover'
+          underline='never'
+          target='_blank'
           href={employment.url}
         >
-          {employment.companyName}
+          <ExternalLinkIcon size={20}/>
         </Anchor>
       </Title>
     </Box>
