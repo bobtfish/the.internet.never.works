@@ -43,7 +43,6 @@ export function MyTransition ({
   }: MyTransitionProps) {
     const [hasRendered, setHasRendered] = useState(false)
     const [hasExited, setHasExited] = useState(selected)
-    
     const mounted = hasRendered ? selected : true
     return (
       <Transition
@@ -55,15 +54,16 @@ export function MyTransition ({
         onExited={()=> {setHasExited(true); if (onExited) onExited()}} // Once the non-active parts have transitioned, return to normal functionality
       >
         {styles => {
-            return (
-          <TransitionWrapperBox
-            setHasRendered={setHasRendered}
-            style={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
-                                                                                      // so that we don't see a bunch of exit animations on first paint
-          >
-            {children}
-          </TransitionWrapperBox>
-        )}}
+          return (
+            <TransitionWrapperBox
+              setHasRendered={setHasRendered}
+              style={!selected && !hasExited ? { display: 'none' } : styles} // We override the style for non-selected components to force no display
+                                                                                        // so that we don't see a bunch of exit animations on first paint
+            >
+              {children}
+            </TransitionWrapperBox>
+          )
+        }}
       </Transition>
     )
   }
