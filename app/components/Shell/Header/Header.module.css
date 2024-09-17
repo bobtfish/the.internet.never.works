@@ -21,15 +21,3 @@
     }
   }
 }
-
-.hideSmall {
-  @media (max-width: $mantine-breakpoint-sm) {
-    display: none
-  }
-}
-
-.hideXSmall {
-  @media (max-width: $mantine-breakpoint-xs) {
-    display: none
-  }
-}

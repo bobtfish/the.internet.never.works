@@ -5,3 +5,15 @@
     width: 16px;
     margin-right: 3px;
 }
+
+.hideSmall {
+    @media (max-width: $mantine-breakpoint-sm) {
+      display: none
+    }
+  }
+  
+  .hideXSmall {
+    @media (max-width: $mantine-breakpoint-xs) {
+      display: none
+    }
+  }
