@@ -1,10 +1,6 @@
 const regexMdLinks = /\[([^[]+)\]\(([^)]*)\)/gm
 
-export type MarkdownLink = {
-  match: string
-  text: string
-  url: string
-}
+import type { MarkdownLink } from './types'
 
 const flatten = function (array: any[]) {
   let newArray: any[] = []

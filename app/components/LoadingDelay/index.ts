@@ -1,2 +1,2 @@
 export * from './LoadingDelay'
-export * from './types.d'
+export * from './types'
