@@ -1,5 +1,4 @@
 export {
-    parseCV,
     CVSchema,
     type CV,
     educationSchema,
@@ -16,5 +15,6 @@ export {
     type ProgrammingLanguage
 } from './schema'
 export {
+    parseCV,
     loadData as loadCVData
 } from './utils'
