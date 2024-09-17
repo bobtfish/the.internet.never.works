@@ -1,20 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import { NavLink } from "@remix-run/react";
+import { Box } from '@mantine/core';
 import { CVIcon } from '~/components'
 
-/*
-import {
-  IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconLogout,
-  IconSwitchHorizontal,
-} from '@tabler/icons-react';
-*/
 import classes from './Navbar.module.css';
 
 const menu = [
@@ -28,7 +17,7 @@ const menu = [
   ];
   
 export function Navbar() {
-  const [active, setActive] = useState('Billing');
+  const [active, setActive] = useState('');
 
   const links = menu.map((item) => (
     <NavLink
@@ -41,13 +30,13 @@ export function Navbar() {
       }}
     >
       <item.icon className={classes.linkIcon} stroke={"1.5"} />
-      <span>{item.label}</span>
+      <Box component="span">{item.label}</Box>
     </NavLink>
   ));
 
   return (
-    <div className={classes.navbar}>
+    <Box className={classes.navbar}>
       {links}
-    </div>
+    </Box>
   );
 }

@@ -9,7 +9,6 @@ import classes from './Shell.module.css'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
-
 interface ShellProps {
   children: React.ReactNode
 }
@@ -20,11 +19,11 @@ export function Shell ({ children }: ShellProps) {
     <AppShell
       header={{
         height: '60px', // Note this isn't actually a fixed size, it's recalculated in terms of page scale
-        //offset: false
       }}
       navbar={{
         width: '8rem',
         breakpoint: 'sm',
+        // FIXME
         collapsed: { mobile: !opened }
       }}
       footer={{
