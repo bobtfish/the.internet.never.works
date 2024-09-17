@@ -1,8 +1,9 @@
 import { Title, Text } from "@mantine/core";
+import classes from './CV.module.css'
 
 export function Name ({ name }: { name: string }) {
     return (
-      <Title ta='center' style={{marginBlockEnd: 0}} pb='var(--mantine-spacing-xs)'>
+      <Title ta='center' className={classes.name}>
         <Text
           inherit
           variant='gradient'

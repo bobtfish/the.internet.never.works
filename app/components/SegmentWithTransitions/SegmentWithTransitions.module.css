@@ -1,8 +1,8 @@
 .root {
     margin: 0;
     padding: 0;
-    --swt-content-area-bottom-margin: calc(60px + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(0.3125rem * var(--mantine-scale)) + calc(0.625rem * var(--mantine-scale)) + var(--mantine-spacing-sm));
-    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + calc(var(--mantine-h1-font-size) * var(--mantine-h1-line-height)) + 0.67em + var(--mantine-spacing-xs) + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px + 20px);
+    --swt-content-area-bottom-margin: calc(var(--cv-control-margin-bottom) + var(--cv-control-height));
+    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + var(--app-shell-main-margin) + var(--cv-name-height)  + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px + 20px);
 }
 
 .button {
@@ -26,7 +26,9 @@
 
 .transitionWrapperScrollArea {
     /* FIXME - we need to dynamically calculate this size in some way, because this controls how long the scroll bars end up being when the content overflows */
-    height: calc(100vh - var(--cv-control-margin-bottom) - var(--app-shell-header-offset) - calc(calc(var(--mantine-h1-font-size) * var(--mantine-h1-line-height)) + var(--mantine-spacing-xs) + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px) - 70px);
+    /*height: calc(100vh - var(--cv-control-margin-bottom) - var(--app-shell-header-offset) - calc(calc(var(--mantine-h1-font-size) * var(--mantine-h1-line-height)) + var(--mantine-spacing-xs) + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)) + 20px) - 70px);
+    */
+    height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
     /* FIXME - remove this once we have got a sensible value above. */
     background-color: pink;
 }

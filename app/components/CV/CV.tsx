@@ -1,7 +1,7 @@
 import { Box } from '@mantine/core'
 import {
   SegmentWithTransitions,
-  type SegmentWithTransitionsPropsData
+  type ATransitionProps
 } from '~/components'
 import type { CVProps } from './types'
 import { Name } from './Name'
@@ -14,7 +14,7 @@ import { OpenSourceProjects } from './OpenSourceProjects'
 import classes from './CV.module.css'
 
 export function CV ({ cvdata }: CVProps) {
-  const sections: SegmentWithTransitionsPropsData[] = [
+  const sections: ATransitionProps[] = [
     {
       name: 'Profile',
       content: <Profile profile={cvdata.profile} />,

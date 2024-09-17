@@ -18,7 +18,7 @@ export function SegmentWithTransitions ({
   transition ||= 'fade'
   const buttonClass = cx(baseClasses.button, classes.button)
   return (
-    <Box>
+    <Box className={baseClasses.root}>
       {data.map((datum, i) => (
         <MyTransition
           key={i}

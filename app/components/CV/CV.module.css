@@ -1,17 +1,40 @@
 .root {
     --cv-control-margin-bottom: calc(var(--app-shell-footer-height) + env(safe-area-inset-bottom) + var(--app-shell-main-margin));
-    --cv-control-height: calc(calc(var(--mantine-font-size-sm) * var(--mantine-line-height)) + calc(2 * 0.625rem * var(--mantine-scale)));
+    --sc-text-height: calc(var(--mantine-font-size-sm) * var(--mantine-line-height));
+    --sc-padding-sm-x: calc(0.3125rem * var(--mantine-scale));
+    --sc-padding-sm-y: calc(0.625rem * var(--mantine-scale));
+    --sc-padding-sm: var(--sc-padding-sm-x) var(--sc-padding-sm-y);
+    --sc-padding: var(--sc-padding-sm);
+    --sc-font-height: calc(var(--mantine-font-size-sm) * var(--mantine-line-height));
+    --cv-control-height: calc(var(--sc-font-height) + calc(2 * var(--sc-padding-sm-y)));
     /* Not sure that this is legit to use, but it seems to be about right :) */
     padding-bottom: var(--cv-control-margin-bottom);
+    --cv-name-padding-bottom: var(--mantine-spacing-xs);
+    --cv-name-height: calc(calc(var(--mantine-h1-font-size) * var(--mantine-h1-line-height)) + var(--cv-name-padding-bottom));
+    --cv-synopsis-text-height: calc(var(--mantine-font-size-md) * var(--mantine-line-height-md));
+    --cv-synopsis-padding-bottom: calc(1rem * var(--mantine-scale));
 }
 .control {
     position: fixed;
     bottom: 0;
     margin-bottom: var(--cv-control-margin-bottom);
+    /* calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(0.3125rem * var(--mantine-scale)) + calc(0.625rem * var(--mantine-scale) */
     margin-left: var(--app-shell-navbar-offset);
     margin-right: var(--app-shell-main-margin);
     inset-inline: 0;
     z-index: 5;
+}
+
+.name {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-bottom: var(--cv-name-padding-bottom)
+}
+
+.synopsis {
+  padding-bottom: var(--cv-synopsis-padding-bottom);
+  margin-block-start: 0;
+  margin-block-end: 0; 
 }
 
 .anchor {
