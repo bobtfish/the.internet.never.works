@@ -7,13 +7,31 @@
     --app-shell-navbar-offset: var(--app-shell-main-margin)
   }
 }
+
+:global(.mantine-Accordion-panel) {
+  @media print {
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-right: var(--mantine-spacing-md);
+  @media print {
+    display: none;
+  }
 }
 .main {
   padding-top: var(--app-shell-header-offset);
   margin-right: var(--app-shell-main-margin);
+}
+
+.footer {
+  @media print {
+    display: none;
+  }
 }

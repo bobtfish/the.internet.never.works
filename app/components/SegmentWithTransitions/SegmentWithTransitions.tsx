@@ -17,6 +17,7 @@ export function SegmentWithTransitions ({
   duration ||= 250
   transition ||= 'fade'
   const buttonClass = cx(baseClasses.button, classes.button)
+  const controlClass = cx(baseClasses.control, classes.control)
   return (
     <Box className={baseClasses.root}>
       {data.map((datum, i) => (
@@ -35,7 +36,7 @@ export function SegmentWithTransitions ({
         </MyTransition>
       ))}
       <SegmentedControl
-        className={classes.control}
+        className={controlClass}
         value={selected}
         onChange={transitionTo}
         data={data.map(datum => datum.name)}

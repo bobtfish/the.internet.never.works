@@ -13,13 +13,29 @@
         background-color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-7));
         color: light-dark(var(--mantine-color-dark-5), var(--mantine-color-grey-4));
     }
+
+    @media print {
+        display: none;
+    }
 }
 
 .transitionWrapperBox {
     position: absolute;
-    width: 100%
+    width: 100%;
+    @media print {
+        display: block !important;
+        position: relative;
+    }
 }
 
 .transitionWrapperScrollArea {
-    height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
+    @media screen {
+        height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
+    }
+}
+
+.control {
+    @media print {
+        display: none;
+    }
 }
