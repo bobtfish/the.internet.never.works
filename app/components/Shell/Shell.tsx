@@ -37,6 +37,7 @@ export function Shell ({ children }: ShellProps) {
         header: cx(classes.header, RemoveScroll.classNames.zeroRight),
         main: classes.main,
         footer: classes.footer,
+        navbar: classes.navbar,
       }}
     >
       <AppShell.Header>
