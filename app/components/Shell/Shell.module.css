@@ -16,6 +16,18 @@
   }
 }
 
+:global(.mantine-Accordion-chevron) {
+  @media print {
+    display: none;
+  }
+}
+
+:global(.mantine-Accordion-control) {
+  @media print {
+    padding-left: var(--mantine-spacing-md);
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -28,6 +40,13 @@
 .main {
   padding-top: var(--app-shell-header-offset);
   margin-right: var(--app-shell-main-margin);
+  @media print {
+    margin-left: var(--app-shell-main-margin);
+    padding-inline-start: var(--app-shell-padding);
+    padding-top: var(--app-shell-padding);
+    margin-top: var(--app-shell-main-margin);
+    margin-right: 0;
+  }
 }
 
 .footer {

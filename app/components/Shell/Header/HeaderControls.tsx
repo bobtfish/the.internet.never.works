@@ -2,6 +2,7 @@ import { BoxProps, Group, Tooltip } from '@mantine/core';
 import { ColorSchemeControl } from './ColorSchemeControl';
 import { GithubControl } from './GithubControl';
 import { LinkedInControl } from './LinkedInControl';
+import { PrintControl } from './PrintControl';
 
 interface HeaderControlsProps extends BoxProps {
   githubLink: string;
@@ -25,6 +26,7 @@ export function HeaderControls({
         {withGithub && <GithubControl link={githubLink!} />}
         {withLinkedIn && <LinkedInControl link={linkedInLink!} />}
         {withColorScheme && <ColorSchemeControl />}
+        <PrintControl />
       </Group>
     </Tooltip.Group>
   );

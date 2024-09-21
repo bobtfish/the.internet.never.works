@@ -25,9 +25,19 @@
 }
 
 .name {
+  --text-gradient: light-dark(linear-gradient(45deg, var(--mantine-color-black) 0%, var(--mantine-color-red-filled) 100%), linear-gradient(45deg, var(--mantine-color-white) 0%, var(--mantine-color-red-filled) 100%));
   margin-block-start: 0;
   margin-block-end: 0;
-  padding-bottom: var(--cv-name-padding-bottom)
+  padding-bottom: var(--cv-name-padding-bottom);
+  @media screen {
+    background-image: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media print {
+    color: black !important;
+  }
 }
 
 .synopsis {
@@ -38,7 +48,7 @@
 
 .anchor {
     text-decoration: underline;
-    color: 'light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))'
+    color: light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-5))
 }
 
 .employmentHistoryAccordian {
@@ -70,6 +80,11 @@
       box-shadow: var(--mantine-shadow-md);
       border-radius: var(--mantine-radius-md);
     }
+    @media print {
+      background-color: white;
+      border: 0;
+      box-shadow: 0;
+    }
   }
   
   .employmentHitoryControlGroupChild {
@@ -79,7 +94,9 @@
   }
   
   .employmentHistoryControlCompanyName {
-    min-width: 13.5rem; /* Carefully chosen to be a bit longer than the longest company name */
+    @media screen {
+      min-width: 13.5rem; /* Carefully chosen to be a bit longer than the longest company name */
+    }
   }
   
   .employmentHistoryControlCompanyNameAnchor {
@@ -94,25 +111,31 @@
 }
 
   .employmentHistoryControlJobTitle {
+    @media screen {
       min-width: 21rem; /* Carefully chosen to be a bit longer than the longest company name */
       @media (max-width: $mantine-breakpoint-xs) {
         display: none;
       }
+    }
   }
 
   .employmentHistoryItemJobTitle {
     display: none;
     text-align: center;
     font-size: var(--mantine-font-size-lg);
-    @media (max-width: $mantine-breakpoint-xs) {
-      display: block;
+    @media screen {
+      @media (max-width: $mantine-breakpoint-xs) {
+        display: block;
+      }
     }
   }
   
   .employmentHistoryControlJobDates {
-      min-width: 13rem;
-      @media (max-width: $mantine-breakpoint-md) {
-        display: none
+      @media screen {
+        min-width: 13rem;
+        @media (max-width: $mantine-breakpoint-md) {
+          display: none
+        }
       }
   }
 
@@ -122,5 +145,8 @@
     margin-bottom: var(--mantine-spacing-md);
     @media (max-width: $mantine-breakpoint-md) {
       display: block;
+    }
+    @media print {
+      display: none;
     }
   }
