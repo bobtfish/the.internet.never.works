@@ -44,6 +44,13 @@
   padding-bottom: var(--cv-synopsis-padding-bottom);
   margin-block-start: 0;
   margin-block-end: 0; 
+  background-color: aquamarine;
+  height: var(--cv-synopsis-text-height);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 900;
+  text-align: center;
 }
 
 .anchor {

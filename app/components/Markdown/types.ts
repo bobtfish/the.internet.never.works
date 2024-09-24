@@ -14,7 +14,7 @@ export type MarkdownStringStyles = Partial<Record<MarkdownStringStylesNames, CSS
 
 export type MarkdownAnchorProps = Omit<AnchorProps, 'key' | 'href' | 'styles'>
 
-export type MarkdownStringTextProps = Omit<TextProps, 'classNames' | 'span' | 'component' | 'styles'>
+export type MarkdownStringTextProps = Omit<TextProps, 'classNames' | 'span' | 'styles'>
 
 export type MarkdownParagraphTextProps = Omit<TextProps, 'styles'>
 

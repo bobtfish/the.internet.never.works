@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
     --swt-content-area-bottom-margin: calc(var(--cv-control-margin-bottom) + var(--cv-control-height));
-    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + var(--app-shell-main-margin) + var(--cv-name-height)  + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)) + calc(1rem * var(--mantine-scale)));
+    @media (max-width: $mantine-breakpoint-sm) {
+        --swt-content-area-bottom-margin: var(--cv-control-margin-bottom);
+    }
+    --swt-content-area-top-margin: calc(var(--app-shell-header-offset) + var(--cv-name-height)  + calc(var(--mantine-font-size-md) * var(--mantine-line-height-md)));
 }
 
 .button {
@@ -32,10 +35,15 @@
     @media screen {
         height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
     }
+    background-color: greenyellow;
 }
 
 .control {
     @media print {
+        display: none;
+    }
+    background-color: purple;
+    @media (max-width: $mantine-breakpoint-sm) {
         display: none;
     }
 }

@@ -40,6 +40,9 @@ export function Shell ({ children }: ShellProps) {
         navbar: classes.navbar,
       }}
     >
+      <div style={{backgroundColor: "black", width: '100px', height: 'calc(3.75rem + 0.75rem + calc(2.125rem * 1.3) + 0.625rem + 1.55rem)', position: 'absolute', zIndex: 2000}} >&nbsp;</div>
+     <div style={{backgroundColor: "red", marginLeft: '100px', width: '100px', height: 'var(--app-shell-header-offset)', position: 'absolute', zIndex: 2500}} >&nbsp;</div>
+
       <AppShell.Header>
          <Header navOpen={opened} toggleNav={toggle} />
       </AppShell.Header>
