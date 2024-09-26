@@ -35,14 +35,12 @@
     @media screen {
         height: calc(100vh - var(--swt-content-area-top-margin) - var(--swt-content-area-bottom-margin));
     }
-    background-color: greenyellow;
 }
 
 .control {
     @media print {
         display: none;
     }
-    background-color: purple;
     @media (max-width: $mantine-breakpoint-sm) {
         display: none;
     }
