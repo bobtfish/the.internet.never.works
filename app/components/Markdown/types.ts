@@ -21,6 +21,7 @@ export type MarkdownParagraphTextProps = Omit<TextProps, 'styles'>
 export type MarkdownAnchorTarget = 'blank' | 'self'
 
 export type MarkdownStringBaseProps = {
+    component?: string
     markdown: MarkdownText
     styles?: MarkdownStringStyles
     anchorProps?: MarkdownAnchorProps

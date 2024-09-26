@@ -19,7 +19,7 @@ export function MarkdownParagraph ({
     <>
       {paras.map((para, idx) => {
         return (
-          <Text
+          <Text<any>
             {...textProps}
             className={className}
             classNames={{root: classNames?.root}}
