@@ -24,7 +24,14 @@
 
 :global(.mantine-Accordion-control) {
   @media print {
-    padding-left: var(--mantine-spacing-md);
+    padding-left: 0;
+    padding-inline: 0;
+  }
+}
+:global(.mantine-Accordion-content) {
+  @media print {
+    padding: 0;
+    margin-right: var(--mantine-spacing-sm)
   }
 }
 

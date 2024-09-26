@@ -33,7 +33,7 @@ export function OpenSourceProjects ({
   return (
     <Box>
       <Title order={2}>Open Source Projects</Title>
-      <List>
+      <List pt='sm'>
         <OpenSourceProjectsList openSourceProjectsData={openSourceProjectsData} />
       </List>
     </Box>

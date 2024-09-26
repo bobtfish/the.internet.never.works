@@ -19,7 +19,7 @@ export function ProgrammingLanguages ({
   return (
     <Box>
       <Title order={2}>Programming Languages</Title>
-      <List>
+      <List pt='sm' pb='sm'>
         <ProgrammingLanguagesList
           programmingLanguagesData={programmingLanguagesData}
         />

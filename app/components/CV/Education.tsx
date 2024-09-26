@@ -23,7 +23,7 @@ export function Education ({ educationData }: EducationProps) {
   return (
     <>
       <Title order={2}>Education</Title>
-      <List pb='var(--mantine-spacing-lg)'>
+      <List pt='sm' pb='sm'>
         <EducationList educationData={educationData} />
       </List>
     </>
