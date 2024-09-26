@@ -22,12 +22,19 @@
     }
 }
 
+:global(.mantine-ScrollArea-root) {
+    @media print {
+        overflow: visible visible !important;
+    }
+}
+
 .transitionWrapperBox {
     position: absolute;
     width: 100%;
     @media print {
         display: block !important;
         position: relative;
+        padding-right: var(--mantine-spacing-lg);
     }
 }
 

@@ -14,7 +14,7 @@ function OpenSourceProjectItem({
 }) {
   return (
     <>
-      <Anchor className={classes.anchor} href={project.url}>{project.name}</Anchor> <MarkdownString classNames={{anchor: classes.anchor}} markdown={project.description} /> ({project.languages})
+      <Anchor className={classes.anchor} href={project.url}>{project.name}</Anchor>: <MarkdownString classNames={{anchor: classes.anchor}} markdown={project.description} /> ({project.languages})
     </>
   )
 }
